@@ -5,7 +5,7 @@ export const testFunctions = image => {
     const imageBase64 = decodeBase64Image(image.base64);
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection`, {
       method: 'POST',
-      body: JSON.stringify({image: imageBase64})
+      body: JSON.stringify({image: imageBase64, type: image.type})
     })
     .then(res => {
       if (res.ok) {
@@ -23,17 +23,11 @@ export const testFunctions = image => {
 
 const decodeBase64Image = (dataString) => {
   const matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
-  // let response = {};
 
   if (matches.length !== 3) {
     return new Error('Invalid input string');
   }
 
-
-  // response.type = matches[1];
-  // response.data = new Buffer(matches[2], 'base64');
-
-  // return new Buffer(matches[2], 'base64');
   return matches[2];
 }
 

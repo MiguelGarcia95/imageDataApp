@@ -14,14 +14,15 @@ exports.imageLabelDetection = functions.https.onRequest(async (request, response
     
     const body = JSON.parse(request.body);
     const incomingImage = Buffer(body.image, 'base64');
+    const imagePath = `/tmp/image.${body.type}`;
 
-    fs.writeFileSync("/tmp/image.jpg", incomingImage, err => {
+    fs.writeFileSync(imagePath, incomingImage, err => {
       console.log(err);
       return response.status(500).json({error: err});
     })
 
     try {
-      const labelDetection = await client.labelDetection('/tmp/image.jpg');
+      const labelDetection = await client.labelDetection(imagePath);
 
       return response.send(200, {
         labelDetection: labelDetection[0]
@@ -35,10 +36,17 @@ exports.imageLabelDetection = functions.https.onRequest(async (request, response
 
 exports.imageWebDetection = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
-    const image = 'https://i.redd.it/win02ukxgtb01.jpg';
+    const body = JSON.parse(request.body);
+    const incomingImage = Buffer(body.image, 'base64');
+    const imagePath = `/tmp/image.${body.type}`;
+
+    fs.writeFileSync(imagePath, incomingImage, err => {
+      console.log(err);
+      return response.status(500).json({error: err});
+    })
 
     try {
-      const webDetection = await client.webDetection(image);
+      const webDetection = await client.webDetection(imagePath);
       return response.send(200, {
         webDetection: webDetection[0]
       })

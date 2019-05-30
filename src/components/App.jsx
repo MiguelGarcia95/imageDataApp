@@ -7,7 +7,8 @@ class App extends Component {
   state = {
     image: {
       base64: null,
-      preview: null
+      preview: null,
+      type: null,
     }
   }
 
@@ -20,9 +21,14 @@ class App extends Component {
         image: {
           base64: reader.result,
           preview: URL.createObjectURL(file),
+          type: this.getFileType(file.name)
         }
       })
     }
+  }
+
+  getFileType = fileName => {
+    return fileName.substring(fileName.lastIndexOf('.')+1, fileName.length) || fileName
   }
 
   onImageUpload = () => {
@@ -30,7 +36,8 @@ class App extends Component {
   }
 
   render() {
-    const {preview} = this.state.image;
+    const {preview, type} = this.state.image;
+    console.log(type);
     return (
       <div className="App">
         <h1 onClick={this.onImageUpload} >Hey</h1>
