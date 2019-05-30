@@ -20,8 +20,10 @@ exports.sendImageForVision = functions.https.onRequest((request, response) => {
     client.webDetection('https://i.redd.it/win02ukxgtb01.jpg').then(res => {
       // const labels = result.labelAnnotations;
       // console.log(labels);
-      console.log(res[0].webDetection);
-      return response.send("IMAGE!");
+      // console.log(res[0].webDetection);
+      return response.send(200, {
+        data: res[0].webDetection 
+      });
     }).catch(err => console.log(err));
   })
 })
