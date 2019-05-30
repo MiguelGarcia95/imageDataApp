@@ -15,20 +15,24 @@ exports.imageLabelDetection = functions.https.onRequest(async (request, response
     
     const body = JSON.parse(request.body);
 
-    fs.writeFileSync("/tmp/image.jpg", body.image, "base64", err => {
+    fs.writeFile('/tmp/image.jpg', body, err => {
       console.log(err);
       return response.status(500).json({error: err});
     });
 
-    const image = '/tmp/image.jpg';
+    const image = fs.ReadStream('image-labeled-search.appspot.com/tmp/image.jpg');
+    const image2 = 'image-labeled-search.appspot.com/tmp/image.jpg';
+    
+    console.log('image', image)
+    console.log('image2', image2)
 
     try {
-      const labelDetection = await client.labelDetection(image);
+      // const labelDetection = await client.labelDetection(image);
 
-      return response.send(200, {
-        labelDetection: labelDetection[0]
-      })
-      // return response.send(200, 'OKAY');
+      // return response.send(200, {
+      //   labelDetection: labelDetection[0]
+      // })
+      return response.send(200, 'OKAY');
     }
     catch (error) {
       return response.send(500, error);
