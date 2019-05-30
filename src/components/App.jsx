@@ -47,7 +47,7 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    testFunctions: () => dispatch(testFunctions())
+    testFunctions: image => dispatch(testFunctions(image))
   }
 }
 
