@@ -1,5 +1,5 @@
 import firebase from 'firebase/app';
-import {FIREBASE_API_KEY, FIREBASE_APP_ID} from './API_KEYS';
+import {FIREBASE_API_KEY, FIREBASE_APP_ID} from './utilities/API_KEYS';
 
 var firebaseConfig = {
   apiKey: "",
