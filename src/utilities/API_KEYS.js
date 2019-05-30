@@ -1,3 +1,0 @@
-export const FIREBASE_API_KEY = 'AIzaSyAwg4o__yhe3b75i4u2gPhJPwO3aWKB49Q';
-export const FIREBASE_APP_ID = '1:991120553633:web:56b356860e17b159';
-export const VISION_AI_API_KEY = 'VISION_AI_API_KEY';
