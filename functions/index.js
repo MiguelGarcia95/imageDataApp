@@ -14,15 +14,35 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   })
 });
 
-exports.sendImageForVision = functions.https.onRequest(async (request, response) => {
+exports.imageLabelDetection = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
     const image = 'https://i.redd.it/win02ukxgtb01.jpg';
-    
-    const labelDetection = await client.labelDetection(image);
-    const webDetection = await client.webDetection(image)
-    return response.send(200, {
-      labelDetection: labelDetection[0],
-      webDetection: webDetection[0]
-    })
+
+    try {
+      const labelDetection = await client.labelDetection(image);
+
+      return response.send(200, {
+        labelDetection: labelDetection[0]
+      })
+    }
+    catch (error) {
+      return response.send(500, error);
+    }
+  })
+})
+
+exports.imageWebDetection = functions.https.onRequest(async (request, response) => {
+  cors(request, response, async () => {
+    const image = 'https://i.redd.it/win02ukxgtb01.jpg';
+
+    try {
+      const webDetection = await client.webDetection(image);
+      return response.send(200, {
+        webDetection: webDetection[0]
+      })
+    }
+    catch (error) {
+      return response.send(500, error);
+    }
   })
 })
