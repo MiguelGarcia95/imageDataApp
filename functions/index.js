@@ -11,51 +11,25 @@ const fs = require("fs");
 
 exports.imageLabelDetection = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
-    // const image = 'https://i.redd.it/win02ukxgtb01.jpg';
     
     const body = JSON.parse(request.body);
-    // const incomingImage = Buffer(body, 'base64')
+    const incomingImage = Buffer(body.image, 'base64');
 
-    fs.writeFile('/tmp/image.jpg', body, err => {
+    fs.writeFileSync("/tmp/image.jpg", incomingImage, err => {
       console.log(err);
-      // return response.send(500, error);
+      return response.status(500).json({error: err});
     })
-    .then(async () => {
-      const image = fs.readFileSync('/tmp/image.jpg');
 
-      console.log('image', image)
+    try {
+      const labelDetection = await client.labelDetection('/tmp/image.jpg');
 
-      try {
-        const labelDetection = await client.labelDetection(image);
-  
-        return response.send(200, {
-          labelDetection: labelDetection[0]
-        })
-        // return response.send(200, 'OKAY');
-      }
-      catch (error) {
-        return response.send(500, error);
-      }
-
-    })
-    .catch(err => {
-      console.log(err);
+      return response.send(200, {
+        labelDetection: labelDetection[0]
+      })
+    }
+    catch (error) {
       return response.send(500, error);
-    });
-
-
-    // fs.writeFileSync("/tmp/image.jpg", body, (err, data) => {
-    //   console.log(err);
-    //   console.log(data);
-    //   return response.status(500).json({error: err});
-    // })
-
-
-    // fs.readFile('/tmp/image.jpg', (err, data) => {
-    //   console.log(data);
-    // })
-    
-
+    }
   })
 })
 
