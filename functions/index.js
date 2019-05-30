@@ -17,10 +17,10 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 exports.sendImageForVision = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
     // const [result] = client.labelDetection('https://i.redd.it/win02ukxgtb01.jpg');
-    client.labelDetection('https://i.redd.it/win02ukxgtb01.jpg').then(res => {
+    client.webDetection('https://i.redd.it/win02ukxgtb01.jpg').then(res => {
       // const labels = result.labelAnnotations;
       // console.log(labels);
-      console.log(res[0]);
+      console.log(res[0].webDetection);
       return response.send("IMAGE!");
     }).catch(err => console.log(err));
   })
