@@ -25,11 +25,15 @@ class App extends Component {
     }
   }
 
+  onImageUpload = () => {
+    this.props.testFunctions(this.state.image);
+  }
+
   render() {
     const {preview} = this.state.image;
     return (
       <div className="App">
-        <h1 onClick={this.props.testFunctions} >Hey</h1>
+        <h1 onClick={this.onImageUpload} >Hey</h1>
 
         <section className="text">
           <input type='file' onChange={this.handleImageSelect} />

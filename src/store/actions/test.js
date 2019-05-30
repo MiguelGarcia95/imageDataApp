@@ -1,10 +1,10 @@
 import * as actionTypes from './actionTypes';
 
-export const testFunctions = () => {
+export const testFunctions = image => {
   return dispatch => {
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection`, {
       method: 'POST',
-      // body: JSON.stringify()
+      body: JSON.stringify({image: image.base64})
     })
     .then(res => {
       if (res.ok) {
