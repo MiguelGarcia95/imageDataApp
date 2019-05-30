@@ -14,32 +14,48 @@ exports.imageLabelDetection = functions.https.onRequest(async (request, response
     // const image = 'https://i.redd.it/win02ukxgtb01.jpg';
     
     const body = JSON.parse(request.body);
+    // const incomingImage = Buffer(body, 'base64')
 
     fs.writeFile('/tmp/image.jpg', body, err => {
       console.log(err);
-      return response.status(500).json({error: err});
+      // return response.send(500, error);
+    })
+    .then(async () => {
+      const image = fs.readFileSync('/tmp/image.jpg');
+
+      console.log('image', image)
+
+      try {
+        const labelDetection = await client.labelDetection(image);
+  
+        return response.send(200, {
+          labelDetection: labelDetection[0]
+        })
+        // return response.send(200, 'OKAY');
+      }
+      catch (error) {
+        return response.send(500, error);
+      }
+
+    })
+    .catch(err => {
+      console.log(err);
+      return response.send(500, error);
     });
 
-    // const image = fs.ReadStream('image-labeled-search.appspot.com/tmp/image.jpg');
-    const image = fs.readFileSync('./tmp/image.jpg')
-    const image2 = fs.readFileSync('/tmp/image.jpg')
-    const image3 = fs.readFileSync('tmp/image.jpg')
+
+    // fs.writeFileSync("/tmp/image.jpg", body, (err, data) => {
+    //   console.log(err);
+    //   console.log(data);
+    //   return response.status(500).json({error: err});
+    // })
+
+
+    // fs.readFile('/tmp/image.jpg', (err, data) => {
+    //   console.log(data);
+    // })
     
-    console.log('image', image)
-    console.log('image2', image2)
-    console.log('image3', image3)
 
-    try {
-      // const labelDetection = await client.labelDetection(image);
-
-      // return response.send(200, {
-      //   labelDetection: labelDetection[0]
-      // })
-      return response.send(200, 'OKAY');
-    }
-    catch (error) {
-      return response.send(500, error);
-    }
   })
 })
 

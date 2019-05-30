@@ -2,15 +2,16 @@ import * as actionTypes from './actionTypes';
 
 export const testFunctions = image => {
   return dispatch => {
+    const imageBase64 = decodeBase64Image(image.base64);
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection`, {
       method: 'POST',
-      body: JSON.stringify({image: decodeBase64Image(image.base64)})
+      body: JSON.stringify({image: imageBase64})
     })
     .then(res => {
       if (res.ok) {
         return res.json();
       } else {
-        throw(new Error())
+        throw(new Error(res.error))
       }
     })
     .then(parsed => {
@@ -32,7 +33,8 @@ const decodeBase64Image = (dataString) => {
   // response.type = matches[1];
   // response.data = new Buffer(matches[2], 'base64');
 
-  return new Buffer(matches[2], 'base64');
+  // return new Buffer(matches[2], 'base64');
+  return matches[2];
 }
 
 // https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection
