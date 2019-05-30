@@ -16,28 +16,13 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 exports.sendImageForVision = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
-    let imageData = {
-    };
-    let webDetection;
-    // const [result] = client.labelDetection('https://i.redd.it/win02ukxgtb01.jpg');
-    // client.labelDetection('https://i.redd.it/win02ukxgtb01.jpg').then(res => {
-    //   // console.log(res[0].webDetection);
-    //   // return response.send(200, {
-    //   //   data: res[0].webDetection 
-    //   // });
-    //   // webDetection = res[0].webDetection;
-    //   // webDetection = res[0].webDetection;
-    //   return res[0];
-    // })
-    // .then(data => webDetection = data)
-    // .catch(err => console.log(err));
-    // return response.send(200, {
-    //   webDetection
-    // });
-
-    const labelDetection = await client.labelDetection('https://i.redd.it/win02ukxgtb01.jpg');
+    const image = 'https://i.redd.it/win02ukxgtb01.jpg';
+    
+    const labelDetection = await client.labelDetection(image);
+    const webDetection = await client.webDetection(image)
     return response.send(200, {
-      labelDetection
+      labelDetection: labelDetection[0],
+      webDetection: webDetection[0]
     })
   })
 })
