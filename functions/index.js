@@ -18,12 +18,16 @@ exports.imageLabelDetection = functions.https.onRequest(async (request, response
   cors(request, response, async () => {
     const image = 'https://i.redd.it/win02ukxgtb01.jpg';
 
-    try {
-      const labelDetection = await client.labelDetection(image);
+    const body = JSON.parse(request.body)
+    console.log(body);
 
-      return response.send(200, {
-        labelDetection: labelDetection[0]
-      })
+    try {
+      // const labelDetection = await client.labelDetection(image);
+
+      // return response.send(200, {
+      //   labelDetection: labelDetection[0]
+      // })
+      return response.send(200, 'OKAY');
     }
     catch (error) {
       return response.send(500, error);

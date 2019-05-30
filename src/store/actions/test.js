@@ -2,8 +2,9 @@ import * as actionTypes from './actionTypes';
 
 export const testFunctions = () => {
   return dispatch => {
-    fetch(` https://us-central1-image-labeled-search.cloudfunctions.net/sendImageForVision`, {
-      method: 'POST'
+    fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection`, {
+      method: 'POST',
+      // body: JSON.stringify()
     })
     .then(res => {
       if (res.ok) {
@@ -18,6 +19,10 @@ export const testFunctions = () => {
     .catch(err => console.log(err));
   }
 }
+
+// https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection
+
+// https://us-central1-image-labeled-search.cloudfunctions.net/imageWebDetection
 
 // export const imageText = () => {
 //   return dispatch => {
