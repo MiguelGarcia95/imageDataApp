@@ -13,3 +13,6 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   })
 });
 
+exports.getImageForVision = functions.https.onRequest((request, response) => {
+  
+})
