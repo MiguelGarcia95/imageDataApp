@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 import {FIREBASE_API_KEY, FIREBASE_APP_ID} from './API_KEYS';
 
 var firebaseConfig = {
@@ -12,3 +13,4 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+export default firebase;
