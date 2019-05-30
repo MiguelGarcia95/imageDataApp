@@ -1,12 +1,22 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {testFunctions} from '../store/actions/test';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      Hey
-    </div>
-  );
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1 onClick={this.props.testFunctions} >Hey</h1>
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+  return {
+    testFunctions: () => dispatch(testFunctions())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);
