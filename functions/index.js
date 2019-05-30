@@ -14,16 +14,30 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
   })
 });
 
-exports.sendImageForVision = functions.https.onRequest((request, response) => {
-  cors(request, response, () => {
+exports.sendImageForVision = functions.https.onRequest(async (request, response) => {
+  cors(request, response, async () => {
+    let imageData = {
+    };
+    let webDetection;
     // const [result] = client.labelDetection('https://i.redd.it/win02ukxgtb01.jpg');
-    client.webDetection('https://i.redd.it/win02ukxgtb01.jpg').then(res => {
-      // const labels = result.labelAnnotations;
-      // console.log(labels);
-      // console.log(res[0].webDetection);
-      return response.send(200, {
-        data: res[0].webDetection 
-      });
-    }).catch(err => console.log(err));
+    // client.labelDetection('https://i.redd.it/win02ukxgtb01.jpg').then(res => {
+    //   // console.log(res[0].webDetection);
+    //   // return response.send(200, {
+    //   //   data: res[0].webDetection 
+    //   // });
+    //   // webDetection = res[0].webDetection;
+    //   // webDetection = res[0].webDetection;
+    //   return res[0];
+    // })
+    // .then(data => webDetection = data)
+    // .catch(err => console.log(err));
+    // return response.send(200, {
+    //   webDetection
+    // });
+
+    const labelDetection = await client.labelDetection('https://i.redd.it/win02ukxgtb01.jpg');
+    return response.send(200, {
+      labelDetection
+    })
   })
 })
