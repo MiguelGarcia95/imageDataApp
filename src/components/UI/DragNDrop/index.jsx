@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
+import './style.css';
 
 class DragNDrop extends Component {
   state = {
     dragging: false,
-    
+    dragCounter: 0,
+
   }
 
-  dropRef = React.createRef()
+  dropRef = React.createRef();
 
   componentDidMount() {
     
@@ -33,11 +35,18 @@ class DragNDrop extends Component {
   handleDragIn = event => {
     event.preventDefault();
     event.stopPropagation();
+    this.setState({dragCounter: this.state.dragCounter++});
+    if (event.dataTransfer.items && event.dataTransfer.items.length > 0) {
+      this.setState({dragging: true})
+    }
   }
 
   handleDragOut = event => {
     event.preventDefault();
     event.stopPropagation();
+    this.setState({dragCounter: this.state.dragCounter--});
+    if (this.state.dragCounter > 0) return;
+    this.setState({dragging: false})
   }
 
   handleDrop = event => {
@@ -48,7 +57,14 @@ class DragNDrop extends Component {
 
   render() {
     return (
-      <section ref={this.dropRef}>
+      <section id='drag_drop' ref={this.dropRef}>
+        {this.state.dragging && (
+          <section id="drag_box">
+            <section id="drag_box_content">
+              <section>Drop Here :)</section>
+            </section>
+          </section>
+        )}
         {this.props.children}
       </section>
     )
