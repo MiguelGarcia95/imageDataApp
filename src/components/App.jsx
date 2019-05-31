@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {testFunctions} from '../store/actions/test';
 import './App.css';
+import DragNDrop from './UI/DragNDrop';
 
 class App extends Component {
   state = {
@@ -45,6 +46,8 @@ class App extends Component {
         <section className="text">
           <input type='file' onChange={this.handleImageSelect} />
         </section>
+
+        <DragNDrop />
 
         {preview && <img src={preview} />}
       </div>
