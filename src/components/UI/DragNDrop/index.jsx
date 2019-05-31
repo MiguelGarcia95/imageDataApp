@@ -7,9 +7,9 @@ class DragNDrop extends Component {
       dragging: false,
       dragCounter: 0,
     }
-    this.dragCounter = 0;
   }
 
+  dropRef = React.createRef();
 
   componentDidMount() {
     let container = this.dropRef.current;
@@ -27,7 +27,6 @@ class DragNDrop extends Component {
     container.removeEventListener('drop', this.handleDrop);
   }
 
-  dropRef = React.createRef();
 
   handleDrag = event => {
     event.preventDefault();
@@ -37,7 +36,6 @@ class DragNDrop extends Component {
   handleDragIn = event => {
     event.preventDefault();
     event.stopPropagation();
-    // this.dragCounter++;
     this.setState({dragCounter: this.state.dragCounter++})
     if (event.dataTransfer.items && event.dataTransfer.items.length > 0) {
       this.setState({dragging: true})
@@ -47,7 +45,6 @@ class DragNDrop extends Component {
   handleDragOut = event => {
     event.preventDefault();
     event.stopPropagation();
-    // this.dragCounter--;
     this.setState({dragCounter: this.state.dragCounter--})
     if (this.state.dragCounter === 0) {
       this.setState({dragging: false})
