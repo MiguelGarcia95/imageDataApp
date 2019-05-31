@@ -42,12 +42,14 @@ class App extends Component {
     return (
       <div className="App">
         <h1 onClick={this.onImageUpload} >Hey</h1>
+        <section style={{width: '300px', height: '300px'}}>
+          <DragNDrop />
+        </section>
 
         <section className="text">
           <input type='file' onChange={this.handleImageSelect} />
         </section>
 
-        <DragNDrop />
 
         {preview && <img src={preview} />}
       </div>

@@ -4,7 +4,8 @@ class DragNDrop extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dragging: false
+      dragging: false,
+      dragCounter: 0,
     }
     this.dragCounter = 0;
   }
@@ -17,8 +18,6 @@ class DragNDrop extends Component {
     container.addEventListener('dragover', this.handleDrag);
     container.addEventListener('drop', this.handleDrop);
   }
-
-  compo
 
   componentWillUnmount() {
     let container = this.dropRef.current;
@@ -38,7 +37,8 @@ class DragNDrop extends Component {
   handleDragIn = event => {
     event.preventDefault();
     event.stopPropagation();
-    this.dragCounter++;
+    // this.dragCounter++;
+    this.setState({dragCounter: this.state.dragCounter++})
     if (event.dataTransfer.items && event.dataTransfer.items.length > 0) {
       this.setState({dragging: true})
     }
@@ -47,21 +47,57 @@ class DragNDrop extends Component {
   handleDragOut = event => {
     event.preventDefault();
     event.stopPropagation();
-    this.dragCounter--;
-    if (this.dragCounter > 0) return
-    this.setState({dragging: false})
+    // this.dragCounter--;
+    this.setState({dragCounter: this.state.dragCounter--})
+    if (this.state.dragCounter === 0) {
+      this.setState({dragging: false})
+    }
   }
   
   handleDrop = event => {
     event.preventDefault();
     event.stopPropagation();
+    if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
+      this.props.handleDrop(event.dataTransfer.files)
+      event.dataTransfer.clearData()
+      this.state.dragCounter = 0    
+    }
   }
 
 
   render() {
     return(
-      <section className='drag_drop_container' ref={this.dropRef}>
+      <section 
+        style={{display: 'inline-block', position: 'relative'}} 
+        className='drag_drop_container' ref={this.dropRef}
+      >
+        {this.state.dragging && (
+          <section 
+            style={{
+              border: 'dashed grey 4px', 
+              backgroundColor: 'rgba(255,255,255,0.8)',
+              position: 'absolute',
+              top: 0, bottom: 0,
+              left: 0, right: 0,
+              zIndex: 9999
+            }}
+          >
+            <section
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: 0, right: 0,
+                textAlign: 'center',
+                color: 'grey',
+                fontSize: 36
+              }}
+            >
+              <section>Drop Here :)</section>
+            </section>
 
+          </section>
+        )}
+        {this.props.children}
       </section>
     )
   }
