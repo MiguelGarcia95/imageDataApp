@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
 class DragNDrop extends Component {
+  state = {
+    dragging: false,
+    
+  }
 
   dropRef = React.createRef()
 
