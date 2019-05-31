@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 
 class DragNDrop extends Component {
-  dropRef = React.createRef();
-
   componentDidMount() {
     let container = this.dropRef.current;
     container.addEventListener('dragenter', this.handleDragIn);
@@ -18,6 +16,14 @@ class DragNDrop extends Component {
     container.removeEventListener('dragover', this.handleDrag);
     container.removeEventListener('drop', this.handleDrop);
   }
+
+  dropRef = React.createRef();
+
+  handleDrag = e => {}
+  handleDragIn = e => {}
+  handleDragOut = e => {}
+  handleDrop = e => {}
+
 
   render() {
     return(
