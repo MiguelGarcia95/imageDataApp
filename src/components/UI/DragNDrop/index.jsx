@@ -45,13 +45,20 @@ class DragNDrop extends Component {
     event.preventDefault();
     event.stopPropagation();
     this.setState({dragCounter: this.state.dragCounter--});
-    if (this.state.dragCounter > 0) return;
-    this.setState({dragging: false})
+    if (this.state.dragCounter === 0) {
+      this.setState({dragging: false})
+    } 
   }
 
   handleDrop = event => {
     event.preventDefault();
     event.stopPropagation();
+    this.setState({dragging: false});
+    if (event.dataTransfer.files && event.dataTransfer.files.length > 0) {
+      this.props.handleDrop(event.dataTransfer.files);
+      event.dataTransfer.clearData();
+      this.setState({dragCounter: 0});
+    }
   }
 
 
