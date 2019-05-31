@@ -11,7 +11,7 @@ class App extends Component {
       preview: null,
       type: null,
     },
-    files: [
+      files: [
       'nice.pdf',
       'verycool.jpg',
       'amazing.png',
@@ -44,14 +44,6 @@ class App extends Component {
     this.props.testFunctions(this.state.image);
   }
 
-  handleDrop = (files) => {
-    let fileList = this.state.files
-    for (var i = 0; i < files.length; i++) {
-      if (!files[i].name) return
-      fileList.push(files[i].name)
-    }
-    this.setState({files: fileList})
-  }
 
   render() {
     const {preview, type} = this.state.image;
@@ -59,16 +51,13 @@ class App extends Component {
     return (
       <div className="App">
         <h1 onClick={this.onImageUpload} >Hey</h1>
-        <section style={{width: '300px', height: '300px'}}>
-          <DragNDrop>
-          <div style={{height: 300, width: 250}}>
-            {this.state.files.map((file) =>
-              <div>{file}</div>
-            )}
-          </div>
-          </DragNDrop>
-        </section>
+{/* 
+        <DragNDrop>
+          <section style={{width: '300px', height: '300px'}}>
 
+          </section>
+        </DragNDrop> */}
+        
         <section className="text">
           <input type='file' onChange={this.handleImageSelect} />
         </section>
