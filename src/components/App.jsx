@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {testFunctions} from '../store/actions/test';
 import './App.css';
-import DragNDrop from './UI/DragNDrop';
 
 class App extends Component {
   state = {
@@ -44,21 +43,13 @@ class App extends Component {
     this.props.testFunctions(this.state.image);
   }
 
-
   render() {
     const {preview, type} = this.state.image;
     console.log(type);
     return (
       <div className="App">
         <h1 onClick={this.onImageUpload} >Hey</h1>
-      
-      {/* 
-        <DragNDrop>
-          <section style={{width: '300px', height: '300px'}}>
-
-          </section>
-        </DragNDrop> 
-      */}
+     
 
         <section className="text">
           <input type='file' onChange={this.handleImageSelect} />
