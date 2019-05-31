@@ -21,6 +21,27 @@ class DragNDrop extends Component {
     container.removeEventListener('drop', this.handleDrop)
   }
 
+  handleDrag = event => {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  handleDragIn = event => {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  handleDragOut = event => {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  handleDrop = event => {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+
   render() {
     return (
       <section ref={this.dropRef}>
