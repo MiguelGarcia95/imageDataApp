@@ -1,10 +1,10 @@
 import React, {useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
 
-const DropZone = () => {
+const DropZone = ({onImageDrop}) => {
   const onDrop = useCallback(acceptedFiles => {
     // Do something with the files
-    console.log(acceptedFiles);
+    onImageDrop(acceptedFiles)
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 

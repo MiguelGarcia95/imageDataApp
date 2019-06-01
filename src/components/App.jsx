@@ -10,14 +10,7 @@ class App extends Component {
       base64: null,
       preview: null,
       type: null,
-    },
-      files: [
-      'nice.pdf',
-      'verycool.jpg',
-      'amazing.png',
-      'goodstuff.mp3',
-      'thankyou.doc'
-      ]
+    }
   }
 
 
@@ -44,6 +37,22 @@ class App extends Component {
     this.props.testFunctions(this.state.image);
   }
 
+  onImageDrop = file => {
+    const image = file[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = () => {
+      console.log(reader)
+      this.setState({
+        image: {
+          base64: reader.result,
+          preview: URL.createObjectURL(image),
+          type: this.getFileType(image.name)
+        }
+      })
+    }
+  }
+
   render() {
     const {preview, type} = this.state.image;
     console.log(type);
@@ -52,14 +61,14 @@ class App extends Component {
         <h1 onClick={this.onImageUpload} >Hey</h1>
 
         <section className="drop_zone_container">
-          <DropZone />
+          <DropZone onImageDrop={this.onImageDrop} />
         </section>
 
      
 
-        <section className="text">
+        {/* <section className="text">
           <input type='file' onChange={this.handleImageSelect} />
-        </section>
+        </section> */}
 
 
         {preview && <img src={preview} />}
