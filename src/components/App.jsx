@@ -55,13 +55,13 @@ class App extends Component {
 
   render() {
     const {preview, type} = this.state.image;
-    console.log(type);
+    const dropZoneOpened = preview ? true : false ;
     return (
-      <div className="App">
+      <section className="app">
         <h1 onClick={this.onImageUpload} >Hey</h1>
 
-        <section className={`drop_zone_container ${preview && 'filled'}`}>
-          <DropZone onImageDrop={this.onImageDrop} isEmpty={preview ? false : true} />
+        <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
+          <DropZone onImageDrop={this.onImageDrop} isEmpty={dropZoneOpened ? false : true} />
         </section>
 
      
@@ -72,7 +72,7 @@ class App extends Component {
 
 
         {preview && <img src={preview} />}
-      </div>
+      </section>
     );
   }
 }
