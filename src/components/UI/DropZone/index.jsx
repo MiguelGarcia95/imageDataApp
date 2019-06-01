@@ -1,9 +1,24 @@
 import React, {useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
 
-const DropZone = ({onImageDrop}) => {
+const Dragging = ({dragging}) => {
+  if (dragging) {
+    return (
+      <section className="drag_box dragging">
+        <p>Drop The File here!</p>
+      </section>
+    )
+  } else {
+    return (
+      <section className="drag_box">
+        <p>Drag 'n' drop some files here, or click to select files!</p>
+      </section>
+    )
+  }
+}
+
+const DropZone = ({onImageDrop, isEmpty}) => {
   const onDrop = useCallback(acceptedFiles => {
-    // Do something with the files
     onImageDrop(acceptedFiles)
   }, [])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
@@ -11,11 +26,8 @@ const DropZone = ({onImageDrop}) => {
   return(
     <div {...getRootProps()}>
       <input {...getInputProps()} />
-      {
-        isDragActive ?
-          <p>Drop the files here ...</p> :
-          <p>Drag 'n' drop some files here, or click to select files</p>
-      }
+      
+      <Dragging dragging={isDragActive} />
     </div>
   )
 }

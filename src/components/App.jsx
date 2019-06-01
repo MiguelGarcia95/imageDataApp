@@ -64,13 +64,6 @@ class App extends Component {
           <DropZone onImageDrop={this.onImageDrop} isEmpty={dropZoneOpened ? false : true} />
         </section>
 
-     
-
-        {/* <section className="text">
-          <input type='file' onChange={this.handleImageSelect} />
-        </section> */}
-
-
         {preview && <img src={preview} />}
       </section>
     );
