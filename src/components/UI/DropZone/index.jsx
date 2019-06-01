@@ -15,7 +15,7 @@ const Dragging = ({dragging}) => {
     return (
       <section className="drag_box">
         <section className="content">
-          <p>Drag 'n' drop some files here, or click to select files!</p>
+          <p>Drag Image here, or Click to Pick Image</p>
         </section>
       </section>
     )
