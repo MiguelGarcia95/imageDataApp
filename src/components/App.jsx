@@ -60,8 +60,8 @@ class App extends Component {
       <div className="App">
         <h1 onClick={this.onImageUpload} >Hey</h1>
 
-        <section className="drop_zone_container">
-          <DropZone onImageDrop={this.onImageDrop} />
+        <section className={`drop_zone_container ${preview && 'filled'}`}>
+          <DropZone onImageDrop={this.onImageDrop} isEmpty={preview ? false : true} />
         </section>
 
      
