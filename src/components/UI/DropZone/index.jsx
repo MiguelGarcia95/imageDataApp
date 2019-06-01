@@ -6,13 +6,17 @@ const Dragging = ({dragging}) => {
   if (dragging) {
     return (
       <section className="drag_box dragging">
-        <p>Drop The File here!</p>
+        <section className="content">
+          <p>Drop The File here!</p>
+        </section>
       </section>
     )
   } else {
     return (
       <section className="drag_box">
-        <p>Drag 'n' drop some files here, or click to select files!</p>
+        <section className="content">
+          <p>Drag 'n' drop some files here, or click to select files!</p>
+        </section>
       </section>
     )
   }
@@ -25,7 +29,7 @@ const DropZone = ({onImageDrop, isEmpty}) => {
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return(
-    <section {...getRootProps()}>
+    <section {...getRootProps()} id='drag_box'>
       <input {...getInputProps()} />
       
       <Dragging dragging={isDragActive} />
