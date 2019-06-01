@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {testFunctions} from '../store/actions/test';
 import DropZone from './UI/DropZone';
-import './App.css';
+import './style.css';
 
 class App extends Component {
   state = {
@@ -51,7 +51,10 @@ class App extends Component {
       <div className="App">
         <h1 onClick={this.onImageUpload} >Hey</h1>
 
-        <DropZone />
+        <section className="drop_zone_container">
+          <DropZone />
+        </section>
+
      
 
         <section className="text">
