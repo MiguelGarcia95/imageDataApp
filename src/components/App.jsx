@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {testFunctions} from '../store/actions/test';
+import DropZone from './UI/DropZone';
 import './App.css';
 
 class App extends Component {
@@ -49,6 +50,8 @@ class App extends Component {
     return (
       <div className="App">
         <h1 onClick={this.onImageUpload} >Hey</h1>
+
+        <DropZone />
      
 
         <section className="text">
