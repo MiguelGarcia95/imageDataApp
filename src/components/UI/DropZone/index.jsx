@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react';
 import {useDropzone} from 'react-dropzone';
+import './style.css'
 
 const Dragging = ({dragging}) => {
   if (dragging) {
@@ -24,11 +25,11 @@ const DropZone = ({onImageDrop, isEmpty}) => {
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return(
-    <div {...getRootProps()}>
+    <section {...getRootProps()}>
       <input {...getInputProps()} />
       
       <Dragging dragging={isDragActive} />
-    </div>
+    </section>
   )
 }
 
