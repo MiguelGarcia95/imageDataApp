@@ -47,7 +47,6 @@ class App extends Component {
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onloadend = () => {
-      console.log(reader)
       this.setState({
         image: {
           base64: reader.result,

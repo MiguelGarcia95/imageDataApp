@@ -5,9 +5,11 @@ const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage}) => {
   return (
     <React.Fragment>
       <section className="image_preview">
-        <section className="image">
-          {preview && <img src={preview} alt='User Image' onClick={toggleOffImage} />}
-        </section>
+          {preview && (
+            <section className="image" onClick={toggleOnImage} >
+              <img src={preview} alt='User Image' />
+            </section>
+          )}
       </section>
 
       <section className={`image_fullscreen ${fullscreen ? 'open' : ''}`}>
