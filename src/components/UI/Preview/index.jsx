@@ -1,9 +1,12 @@
 import React from 'react';
+import './style.css';
 
 const Preview = ({preview}) => {
   return (
     <section className="image_preview">
-      {preview && <img src={preview} />}
+      <section className="image">
+        {preview && <img src={preview} />}
+      </section>
     </section>
   )
 }
