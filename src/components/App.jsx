@@ -63,6 +63,11 @@ class App extends Component {
 
         <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
           <DropZone onImageDrop={this.onImageDrop} isEmpty={dropZoneOpened ? false : true} />
+          {preview && (
+            <section className="buttons">
+              ssss
+            </section>
+          ) }
         </section>
 
         <section className="page_content">
