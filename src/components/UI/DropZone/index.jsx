@@ -31,12 +31,10 @@ const DropZone = ({onImageDrop, isEmpty}) => {
 
 
   return(
-    <section className={`drop_zone_container ${!isEmpty ? 'filled' : '' }`}>
-      <section {...getRootProps()} id='drag_box'>
-        <input {...getInputProps()} />
-        
-        <Dragging dragging={isDragActive} />
-      </section>
+    <section {...getRootProps()} id='drag_box'>
+      <input {...getInputProps()} />
+      
+      <Dragging dragging={isDragActive} />
     </section>
   )
 }
