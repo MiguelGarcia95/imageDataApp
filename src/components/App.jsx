@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {testFunctions, getImageLabels, getImageWebLabels} from '../store/actions/test';
+import {getImageLabels, getImageWebLabels} from '../store/actions/image';
 import DropZone from './UI/DropZone';
 import Preview from './UI/Preview';
 import './style.css';
@@ -112,7 +112,6 @@ class App extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    testFunctions: image => dispatch(testFunctions(image)),
     getImageLabels: image => dispatch(getImageLabels(image)),
     getImageWebLabels: image => dispatch(getImageWebLabels(image)),
   }
