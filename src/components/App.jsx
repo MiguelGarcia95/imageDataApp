@@ -64,8 +64,27 @@ class App extends Component {
         <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
           <DropZone onImageDrop={this.onImageDrop} isEmpty={dropZoneOpened ? false : true} />
           {preview && (
-            <section className="buttons">
-              ssss
+            <section className="button_container">
+              <section className="buttons">
+                <section className="button">
+                  <p>Web Detection</p>
+                </section>
+                <section className="button">
+                  <p>Label Detection</p>
+                </section>
+                <section className="button">
+                  <p>Label Detection</p>
+                </section>
+                <section className="button">
+                  <p>Label Detection</p>
+                </section>
+                <section className="button">
+                  <p>Label Detection</p>
+                </section>
+                <section className="button">
+                  <p>Label Detection</p>
+                </section>
+              </section>
             </section>
           ) }
         </section>
