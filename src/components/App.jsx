@@ -39,6 +39,9 @@ class App extends Component {
     this.props.testFunctions(this.state.image);
   }
 
+  onGetImageLabels = () => this.props.getImageLabels(this.state.image);
+  onGetImageWebLabels = () => this.props.getImageWebLabels(this.state.image);
+
   toggleOnImage = () => this.setState({fullscreen: true});
   toggleOffImage = () => this.setState({fullscreen: false});
 
