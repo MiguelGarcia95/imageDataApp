@@ -58,7 +58,7 @@ class App extends Component {
   }
 
   render() {
-    const {preview, type, fullscreen} = this.state.image;
+    const {preview, type} = this.state.image;
     const dropZoneOpened = preview ? true : false ;
     return (
       <section className="app">
@@ -95,7 +95,7 @@ class App extends Component {
         <section className="page_content">
           <Preview 
             preview={preview} 
-            fullscreen={fullscreen}
+            fullscreen={this.state.fullscreen}
             toggleOnImage={this.toggleOnImage}
             toggleOffImage={this.toggleOffImage}
           />
