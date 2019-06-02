@@ -11,7 +11,8 @@ class App extends Component {
       base64: null,
       preview: null,
       type: null,
-    }
+    },
+    fullscreen: false
   }
 
 
@@ -38,6 +39,9 @@ class App extends Component {
     this.props.testFunctions(this.state.image);
   }
 
+  toggleOnImage = () => this.setState({fullscreen: true});
+  toggleOffImage = () => this.setState({fullscreen: false});
+
   onImageDrop = file => {
     const image = file[0];
     let reader = new FileReader();
@@ -55,7 +59,7 @@ class App extends Component {
   }
 
   render() {
-    const {preview, type} = this.state.image;
+    const {preview, type, fullscreen} = this.state.image;
     const dropZoneOpened = preview ? true : false ;
     return (
       <section className="app">
@@ -90,7 +94,12 @@ class App extends Component {
         </section>
 
         <section className="page_content">
-          <Preview preview={preview}  />
+          <Preview 
+            preview={preview} 
+            fullscreen={fullscreen}
+            toggleOnImage={this.toggleOnImage}
+            toggleOffImage={this.toggleOffImage}
+          />
         </section>
 
 

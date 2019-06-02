@@ -23,9 +23,9 @@ const Dragging = ({dragging}) => {
 }
 
 const DropZone = ({onImageDrop, isEmpty}) => {
-  const onDrop = useCallback(acceptedFiles => {
-    onImageDrop(acceptedFiles)
-  }, [])
+  const onDrop = useCallback((acceptedFiles, a) => {
+    onImageDrop(acceptedFiles);
+  }, []);
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   return(
