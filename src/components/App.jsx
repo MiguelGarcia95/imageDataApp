@@ -110,6 +110,13 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    imageLabels: state.image.imageLabels,
+    imageWebLabels: state.image.imageWebLabels,
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     getImageLabels: image => dispatch(getImageLabels(image)),
@@ -117,4 +124,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

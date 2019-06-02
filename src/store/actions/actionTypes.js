@@ -1,3 +1,2 @@
-export const TEST = 'TEST';
 export const SET_IMAGE_LABELS = 'SET_IMAGE_LABELS';
 export const SET_IMAGE_WEB_LABELS = 'SET_IMAGE_WEB_LABELS';

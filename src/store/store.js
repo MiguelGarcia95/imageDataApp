@@ -1,10 +1,10 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 // import firebase from '../firebase';
 import thunk from 'redux-thunk';
-import testReducer from './reducers/test';
+import imageReducer from './reducers/image';
 
 const rootReducer = combineReducers({
-  test: testReducer,
+  image: imageReducer,
 });
 
 const store = createStore(
