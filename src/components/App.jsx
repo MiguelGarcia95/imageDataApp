@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {testFunctions} from '../store/actions/test';
+import {testFunctions, getImageLabels, getImageWebLabels} from '../store/actions/test';
 import DropZone from './UI/DropZone';
 import Preview from './UI/Preview';
 import './style.css';

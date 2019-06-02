@@ -92,15 +92,3 @@ export const setImageWebLabels = labels => {
     });
   }
 }
-
-// https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection
-
-// 
-
-// export const imageText = () => {
-//   return dispatch => {
-//     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/helloWorld`, {
-//       method: 'POST'
-//     });
-//   }
-// }
