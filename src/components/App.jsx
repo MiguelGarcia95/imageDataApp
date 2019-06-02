@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {testFunctions} from '../store/actions/test';
 import DropZone from './UI/DropZone';
+import Preview from './UI/Preview';
 import './style.css';
 
 class App extends Component {
@@ -58,7 +59,7 @@ class App extends Component {
     const dropZoneOpened = preview ? true : false ;
     return (
       <section className="app">
-        <h1 onClick={this.onImageUpload} >Hey</h1>
+        {/* <h1 onClick={this.onImageUpload} >Hey</h1> */}
 
         <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
           <DropZone onImageDrop={this.onImageDrop} isEmpty={dropZoneOpened ? false : true} />
