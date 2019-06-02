@@ -16,7 +16,11 @@ const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage}) => {
 
       <section className={`image_fullscreen ${fullscreen ? 'open' : ''}`}>
         <section className="exit">
-          <FontAwesomeIcon onClick={toggleOffImage} fixedWidth  icon={faTimes} size="3x" color='white' />
+          <FontAwesomeIcon 
+            onClick={toggleOffImage} fixedWidth  
+            icon={faTimes} size="3x" color='white'
+            className='icon' 
+          />
         </section>
         <section className="image_container">
           <img src={preview} alt="User Image"/>
