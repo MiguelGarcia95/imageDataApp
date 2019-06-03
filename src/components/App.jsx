@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import {getImageLabels, getImageWebLabels} from '../store/actions/image';
-import DropZone from './UI/DropZone';
 import Preview from './UI/Preview';
+import MenuHeader from './UI/MenuHeader';
 import './style.css';
 
 class App extends Component {
@@ -63,33 +63,11 @@ class App extends Component {
     return (
       <section className="app">
 
-        <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
-          <DropZone onImageDrop={this.onImageDrop} isEmpty={dropZoneOpened ? false : true} />
-          {preview && (
-            <section className="button_container">
-              <section className="buttons">
-                <section className="button">
-                  <p>Web Detection</p>
-                </section>
-                <section className="button">
-                  <p>Label Detection</p>
-                </section>
-                <section className="button">
-                  <p>Label Detection</p>
-                </section>
-                <section className="button">
-                  <p>Label Detection</p>
-                </section>
-                <section className="button">
-                  <p>Label Detection</p>
-                </section>
-                <section className="button">
-                  <p>Label Detection</p>
-                </section>
-              </section>
-            </section>
-          ) }
-        </section>
+        <MenuHeader 
+          dropZoneOpened={dropZoneOpened} 
+          onImageDrop={this.onImageDrop} 
+          preview={preview}
+        />
 
         <section className="page_content">
           <Preview 

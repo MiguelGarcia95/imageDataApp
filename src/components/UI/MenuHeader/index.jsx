@@ -1,4 +1,6 @@
 import React from 'react';
+import DropZone from '../../UI/DropZone';
+
 
 const MenuHeader = ({dropZoneOpened, onImageDrop, preview}) => {
   return (
@@ -32,4 +34,4 @@ const MenuHeader = ({dropZoneOpened, onImageDrop, preview}) => {
   )
 }
 
-export const MenuHeader;
+export default MenuHeader;
