@@ -82,3 +82,9 @@ export const setImageWebLabels = labels => {
     });
   }
 }
+
+
+//https://us-central1-image-labeled-search.cloudfunctions.net/imageTextDetection
+//https://us-central1-image-labeled-search.cloudfunctions.net/imageObjectDetection
+//https://us-central1-image-labeled-search.cloudfunctions.net/imageSafeSearchDetection
+//https://us-central1-image-labeled-search.cloudfunctions.net/imagePropertiesDetection
