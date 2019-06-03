@@ -230,8 +230,3 @@ export const setImageSafeSearch = safeSearch => {
     });
   }
 }
-
-
-//
-//
-//
