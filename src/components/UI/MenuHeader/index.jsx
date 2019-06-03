@@ -12,7 +12,7 @@ const MenuHeader = ({dropZoneOpened, onImageDrop, preview}) => {
     <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
       <DropZone onImageDrop={onImageDrop} isEmpty={dropZoneOpened ? false : true} />
       {preview && (
-        <section className={`button_container  ${dropZoneOpened ? 'filled' : '' }`}>
+        <section className="button_container">
           <section className="buttons">
             <MenuItem title='Web Detection' />
             <MenuItem title='Label Detection' />
