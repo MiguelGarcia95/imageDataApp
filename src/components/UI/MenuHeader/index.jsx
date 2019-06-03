@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import DropZone from '../../UI/DropZone';
+import MenuItem from '../../UI/MenuItem';
 import {getImageLabels, getImageWebLabels} from '../../../store/actions/image';
 import './style.css';
 
@@ -11,26 +12,10 @@ const MenuHeader = ({dropZoneOpened, onImageDrop, preview}) => {
     <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
       <DropZone onImageDrop={onImageDrop} isEmpty={dropZoneOpened ? false : true} />
       {preview && (
-        <section className="button_container">
+        <section className={`button_container  ${dropZoneOpened ? 'filled' : '' }`}>
           <section className="buttons">
-            <section className="button">
-              <p>Web Detection</p>
-            </section>
-            <section className="button">
-              <p>Label Detection</p>
-            </section>
-            <section className="button">
-              <p>Label Detection</p>
-            </section>
-            <section className="button">
-              <p>Label Detection</p>
-            </section>
-            <section className="button">
-              <p>Label Detection</p>
-            </section>
-            <section className="button">
-              <p>Label Detection</p>
-            </section>
+            <MenuItem title='Web Detection' />
+            <MenuItem title='Label Detection' />
           </section>
         </section>
       ) }
