@@ -83,6 +83,32 @@ export const setImageWebLabels = labels => {
   }
 }
 
+export const getImageObjects = image => {
+  return dispatch => {
+    const imageBase64 = decodeBase64Image(image.base64);
+    dispatch(uiStartLoading());
+    fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageObjectDetection`, {
+      method: 'POST',
+      body: JSON.stringify({image: imageBase64, type: image.type})
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw(new Error(res.error))
+      }
+    })
+    .then(parsed => {
+      dispatch(uiEndLoading());
+      dispatch(setImageWebLabels(parsed));
+    })
+    .catch(err => {
+      dispatch(uiEndLoading());
+      console.log(err);
+    });
+  }
+}
+
 export const setImageObjects = objects => {
   return dispatch => {
     dispatch({
@@ -90,6 +116,32 @@ export const setImageObjects = objects => {
       payload: {
         imageObjects: objects
       }
+    });
+  }
+}
+
+export const getImageText = image => {
+  return dispatch => {
+    const imageBase64 = decodeBase64Image(image.base64);
+    dispatch(uiStartLoading());
+    fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageTextDetection`, {
+      method: 'POST',
+      body: JSON.stringify({image: imageBase64, type: image.type})
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw(new Error(res.error))
+      }
+    })
+    .then(parsed => {
+      dispatch(uiEndLoading());
+      dispatch(setImageWebLabels(parsed));
+    })
+    .catch(err => {
+      dispatch(uiEndLoading());
+      console.log(err);
     });
   }
 }
@@ -105,6 +157,32 @@ export const setImageText = text => {
   }
 }
 
+export const getImageProperties = image => {
+  return dispatch => {
+    const imageBase64 = decodeBase64Image(image.base64);
+    dispatch(uiStartLoading());
+    fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imagePropertiesDetection`, {
+      method: 'POST',
+      body: JSON.stringify({image: imageBase64, type: image.type})
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw(new Error(res.error))
+      }
+    })
+    .then(parsed => {
+      dispatch(uiEndLoading());
+      dispatch(setImageWebLabels(parsed));
+    })
+    .catch(err => {
+      dispatch(uiEndLoading());
+      console.log(err);
+    });
+  }
+}
+
 export const setImageProperties = properties => {
   return dispatch => {
     dispatch({
@@ -112,6 +190,32 @@ export const setImageProperties = properties => {
       payload: {
         imageProperties: properties
       }
+    });
+  }
+}
+
+export const getImageSafeSearch = image => {
+  return dispatch => {
+    const imageBase64 = decodeBase64Image(image.base64);
+    dispatch(uiStartLoading());
+    fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageSafeSearchDetection`, {
+      method: 'POST',
+      body: JSON.stringify({image: imageBase64, type: image.type})
+    })
+    .then(res => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw(new Error(res.error))
+      }
+    })
+    .then(parsed => {
+      dispatch(uiEndLoading());
+      dispatch(setImageWebLabels(parsed));
+    })
+    .catch(err => {
+      dispatch(uiEndLoading());
+      console.log(err);
     });
   }
 }
@@ -128,7 +232,6 @@ export const setImageSafeSearch = safeSearch => {
 }
 
 
-//https://us-central1-image-labeled-search.cloudfunctions.net/imageTextDetection
-//https://us-central1-image-labeled-search.cloudfunctions.net/imageObjectDetection
-//https://us-central1-image-labeled-search.cloudfunctions.net/imageSafeSearchDetection
-//https://us-central1-image-labeled-search.cloudfunctions.net/imagePropertiesDetection
+//
+//
+//
