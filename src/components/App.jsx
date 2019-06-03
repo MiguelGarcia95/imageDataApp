@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+
 import {getImageLabels, getImageWebLabels} from '../store/actions/image';
 import DropZone from './UI/DropZone';
 import Preview from './UI/Preview';
@@ -35,10 +36,6 @@ class App extends Component {
     return fileName.substring(fileName.lastIndexOf('.')+1, fileName.length) || fileName
   }
 
-  onImageUpload = () => {
-    this.props.testFunctions(this.state.image);
-  }
-
   onGetImageLabels = () => this.props.getImageLabels(this.state.image);
   onGetImageWebLabels = () => this.props.getImageWebLabels(this.state.image);
 
@@ -65,7 +62,6 @@ class App extends Component {
     const dropZoneOpened = preview ? true : false ;
     return (
       <section className="app">
-        {/* <h1 onClick={this.onImageUpload} >Hey</h1> */}
 
         <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
           <DropZone onImageDrop={this.onImageDrop} isEmpty={dropZoneOpened ? false : true} />
