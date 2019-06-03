@@ -1,5 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
 import DropZone from '../../UI/DropZone';
+import {getImageLabels, getImageWebLabels} from '../../../store/actions/image';
 import './style.css';
 
 
@@ -35,4 +38,11 @@ const MenuHeader = ({dropZoneOpened, onImageDrop, preview}) => {
   )
 }
 
-export default MenuHeader;
+const mapDispatchToProps = dispatch => {
+  return {
+    getImageLabels: image => dispatch(getImageLabels(image)),
+    getImageWebLabels: image => dispatch(getImageWebLabels(image)),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(MenuHeader);

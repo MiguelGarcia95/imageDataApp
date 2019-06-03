@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import {getImageLabels, getImageWebLabels} from '../store/actions/image';
 import Preview from './UI/Preview';
 import MenuHeader from './UI/MenuHeader';
 import './style.css';
@@ -91,11 +90,4 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getImageLabels: image => dispatch(getImageLabels(image)),
-    getImageWebLabels: image => dispatch(getImageWebLabels(image)),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
