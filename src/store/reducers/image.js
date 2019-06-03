@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_IMAGE_WEB_LABELS:
         return {
           ...state,
-          imageWebLabels: action.payload.imageWebLabels
+          imageWebLabels: action.payload.imageWebLabels.webDetection.webDetection
         }
     default:
       return state;

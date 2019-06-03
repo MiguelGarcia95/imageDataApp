@@ -39,8 +39,8 @@ class App extends Component {
   toggleOffImage = () => this.setState({fullscreen: false});
 
   
-  onGetImageLabels = () => this.props.getImageLabels(this.props.image);
-  onGetImageWebLabels = () => this.props.getImageWebLabels(this.props.image);
+  onGetImageLabels = () => this.props.getImageLabels(this.state.image);
+  onGetImageWebLabels = () => this.props.getImageWebLabels(this.state.image);
 
   onImageDrop = file => {
     const image = file[0];
