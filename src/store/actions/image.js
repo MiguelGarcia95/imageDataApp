@@ -83,6 +83,50 @@ export const setImageWebLabels = labels => {
   }
 }
 
+export const setImageObjects = objects => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.SET_IMAGE_OBJECTS,
+      payload: {
+        imageObjects: objects
+      }
+    });
+  }
+}
+
+export const setImageText = text => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.SET_IMAGE_TEXT,
+      payload: {
+        imageText: text
+      }
+    });
+  }
+}
+
+export const setImageProperties = properties => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.SET_IMAGE_PROPERTIES,
+      payload: {
+        imageProperties: properties
+      }
+    });
+  }
+}
+
+export const setImageSafeSearch = safeSearch => {
+  return dispatch => {
+    dispatch({
+      type: actionTypes.SET_IMAGE_SAFE_SEARCH,
+      payload: {
+        imageSafeSearch: safeSearch
+      }
+    });
+  }
+}
+
 
 //https://us-central1-image-labeled-search.cloudfunctions.net/imageTextDetection
 //https://us-central1-image-labeled-search.cloudfunctions.net/imageObjectDetection
