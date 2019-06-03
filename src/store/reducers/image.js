@@ -1,12 +1,12 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  imageLabels: [],
-  imageWebLabels: [],
-  imageObjects: [],
-  imageText: [],
-  imageProperties: [],
-  imageSafeSearch: []
+  imageLabels: null,
+  imageWebLabels: null,
+  imageObjects: null,
+  imageText: null,
+  imageProperties: null,
+  imageSafeSearch: null
 };
 
 const reducer = (state = initialState, action) => {
@@ -19,20 +19,21 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_IMAGE_WEB_LABELS:
       return {
         ...state,
-        // imageWebLabels: action.payload.imageWebLabels.webDetection.webDetection
-        imageWebLabels: action.payload.imageWebLabels.webDetection
+        imageWebLabels: action.payload.imageWebLabels.webDetection.webDetection
       }
     case actionTypes.SET_IMAGE_OBJECTS:
       return {
         ...state,
-        imageObjects: action.payload.imageObjects.objectDetection,
-        imageObjects: action.payload.imageObjects.objectDetection,
+        imageObjects: action.payload.imageObjects.objectDetection.localizedObjectAnnotations,
       }
     case actionTypes.SET_IMAGE_TEXT:
       return {
         ...state,
-        imageText: action.payload.imageText.textDetection,
-        // imageText: action.payload.imageText.textDetection.localizedObjectAnnotations,
+        // imageText: action.payload.imageText.textDetection,
+        imageText: {
+          textAnnotations: action.payload.imageText.textDetection.textAnnotations,
+          fullTextAnnotations: action.payload.imageText.textDetection.fullTextAnnotations,
+        },
       }
     case actionTypes.SET_IMAGE_PROPERTIES:
       return {
