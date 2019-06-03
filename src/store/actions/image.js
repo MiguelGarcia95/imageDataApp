@@ -100,7 +100,7 @@ export const getImageObjects = image => {
     })
     .then(parsed => {
       dispatch(uiEndLoading());
-      dispatch(setImageWebLabels(parsed));
+      dispatch(setImageObjects(parsed));
     })
     .catch(err => {
       dispatch(uiEndLoading());
@@ -137,7 +137,7 @@ export const getImageText = image => {
     })
     .then(parsed => {
       dispatch(uiEndLoading());
-      dispatch(setImageWebLabels(parsed));
+      dispatch(setImageText(parsed));
     })
     .catch(err => {
       dispatch(uiEndLoading());
@@ -174,7 +174,7 @@ export const getImageProperties = image => {
     })
     .then(parsed => {
       dispatch(uiEndLoading());
-      dispatch(setImageWebLabels(parsed));
+      dispatch(setImageProperties(parsed));
     })
     .catch(err => {
       dispatch(uiEndLoading());
@@ -211,7 +211,7 @@ export const getImageSafeSearch = image => {
     })
     .then(parsed => {
       dispatch(uiEndLoading());
-      dispatch(setImageWebLabels(parsed));
+      dispatch(setImageSafeSearch(parsed));
     })
     .catch(err => {
       dispatch(uiEndLoading());
