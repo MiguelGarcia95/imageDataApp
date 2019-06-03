@@ -19,27 +19,32 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_IMAGE_WEB_LABELS:
       return {
         ...state,
-        imageWebLabels: action.payload.imageWebLabels.webDetection.webDetection
+        // imageWebLabels: action.payload.imageWebLabels.webDetection.webDetection
+        imageWebLabels: action.payload.imageWebLabels.webDetection
       }
     case actionTypes.SET_IMAGE_OBJECTS:
       return {
         ...state,
-        imageObjects: action.payload.imageObjects
+        imageObjects: action.payload.imageObjects.objectDetection,
+        imageObjects: action.payload.imageObjects.objectDetection,
       }
     case actionTypes.SET_IMAGE_TEXT:
       return {
         ...state,
-        imageText: action.payload.imageText
+        imageText: action.payload.imageText.textDetection,
+        // imageText: action.payload.imageText.textDetection.localizedObjectAnnotations,
       }
     case actionTypes.SET_IMAGE_PROPERTIES:
       return {
         ...state,
-        imageProperties: action.payload.imageProperties
+        imageProperties: action.payload.imageProperties.propertyDetection,
+        // imageProperties: action.payload.imageProperties.propertyDetection.imagePropertiesAnnotation
       }
     case actionTypes.SET_IMAGE_SAFE_SEARCH:
       return {
         ...state,
-        imageSafeSearch: action.payload.imageSafeSearch
+        imageSafeSearch: action.payload.imageSafeSearch.safeSearchDetection
+        // imageSafeSearch: action.payload.imageSafeSearch.safeSearchDetection.safeSearchAnnotation
       }
     default:
       return state;
