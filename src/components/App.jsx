@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getImageLabels, getImageWebLabels} from '../store/actions/image.js';
+// import {getImageLabels, getImageWebLabels} from '../store/actions/image.js';
 import Preview from './UI/Preview';
 import MenuHeader from './UI/MenuHeader';
 import './style.css';
@@ -39,8 +39,8 @@ class App extends Component {
   toggleOffImage = () => this.setState({fullscreen: false});
 
   
-  onGetImageLabels = () => this.props.getImageLabels(this.state.image);
-  onGetImageWebLabels = () => this.props.getImageWebLabels(this.state.image);
+  // onGetImageLabels = () => this.props.getImageLabels(this.state.image);
+  // onGetImageWebLabels = () => this.props.getImageWebLabels(this.state.image);
 
   onImageDrop = file => {
     const image = file[0];
@@ -67,8 +67,9 @@ class App extends Component {
           dropZoneOpened={dropZoneOpened} 
           onImageDrop={this.onImageDrop} 
           preview={preview}
-          onGetImageLabels={this.onGetImageLabels}
-          onGetImageWebLabels={this.onGetImageWebLabels}
+          image={this.state.image}
+          // onGetImageLabels={this.onGetImageLabels}
+          // onGetImageWebLabels={this.onGetImageWebLabels}
         />
 
         <section className="page_content">
@@ -93,11 +94,11 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getImageLabels: image => dispatch(getImageLabels(image)),
-    getImageWebLabels: image => dispatch(getImageWebLabels(image)),
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getImageLabels: image => dispatch(getImageLabels(image)),
+//     getImageWebLabels: image => dispatch(getImageWebLabels(image)),
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
