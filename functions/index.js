@@ -71,9 +71,9 @@ exports.imageObjectDetection = functions.https.onRequest(async (request, respons
     })
 
     try {
-      const webDetection = await client.webDetection(imagePath);
+      const objectDetection = await client.objectLocalization(imagePath);
       return response.send(200, {
-        webDetection: webDetection[0]
+        objectDetection: objectDetection[0]
       })
     }
     catch (error) {
@@ -93,6 +93,17 @@ exports.imageTextDetection = functions.https.onRequest(async (request, response)
       console.log(err);
       return response.status(500).json({error: err});
     })
+
+    try {
+      const textDetection = await client.textDetection(imagePath);
+      return response.send(200, {
+        textDetection: textDetection[0]
+      })
+    }
+    catch (error) {
+      console.log(error);
+      return response.status(500).json({error: err});
+    }
   })
 })
 
@@ -106,6 +117,17 @@ exports.imagePropertiesDetection = functions.https.onRequest(async (request, res
       console.log(err);
       return response.status(500).json({error: err});
     })
+    
+    try {
+      const propertyDetection = await client.imageProperties(imagePath);
+      return response.send(200, {
+        propertyDetection: propertyDetection[0]
+      })
+    }
+    catch (error) {
+      console.log(error);
+      return response.status(500).json({error: err});
+    }
   })
 })
 
@@ -119,6 +141,17 @@ exports.imageSafeSearchDetection = functions.https.onRequest(async (request, res
       console.log(err);
       return response.status(500).json({error: err});
     })
+
+    try {
+      const safeSearchDetection = await client.safeSearchDetection(imagePath);
+      return response.send(200, {
+        safeSearchDetection: safeSearchDetection[0]
+      })
+    }
+    catch (error) {
+      console.log(error);
+      return response.status(500).json({error: err});
+    }
 
   })
 })
