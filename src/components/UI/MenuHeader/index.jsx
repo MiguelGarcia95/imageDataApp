@@ -3,15 +3,15 @@ import {connect} from 'react-redux';
 
 import DropZone from '../../UI/DropZone';
 import MenuItem from '../../UI/MenuItem';
-import {getImageLabels, getImageWebLabels} from '../../../store/actions/image';
+import {getImageLabels, getImageWebLabels} from '../../../store/actions/image.js';
 import './style.css';
 
 
 
 class MenuHeader extends Component {
 
-  onGetImageLabels = image => this.props.getImageLabels(image);
-  onGetImageWebLabels = image => this.props.getImageWebLabels(image);
+  // onGetImageLabels = image => this.props.getImageLabels(this.props.image);
+  // onGetImageWebLabels = image => this.props.getImageWebLabels(this.props.image);
 
   render() {
     const {dropZoneOpened, onImageDrop, preview, image} = this.props;
@@ -22,8 +22,8 @@ class MenuHeader extends Component {
         {preview && (
           <section className="button_container">
             <section className="buttons">
-              <MenuItem title='Web Detection' onItemClick={() => this.onGetImageWebLabels(image)} />
-              <MenuItem title='Label Detection' onItemClick={() => this.onGetImageLabels(image)}  />
+              <MenuItem title='Web Detection' onItemClick={() => this.props.onGetImageWebLabels()} />
+              <MenuItem title='Label Detection' onItemClick={() => this.props.onGetImageLabels()}  />
             </section>
           </section>
         ) }
@@ -32,11 +32,12 @@ class MenuHeader extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getImageLabels: image => dispatch(getImageLabels(image)),
-    getImageWebLabels: image => dispatch(getImageWebLabels(image)),
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getImageLabels: image => dispatch(getImageLabels(image)),
+//     getImageWebLabels: image => dispatch(getImageWebLabels(image)),
+//   }
+// }
 
-export default connect(null, mapDispatchToProps)(MenuHeader);
+// export default connect(null, mapDispatchToProps)(MenuHeader);
+export default MenuHeader;
