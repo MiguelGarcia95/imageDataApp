@@ -35,9 +35,6 @@ class App extends Component {
     return fileName.substring(fileName.lastIndexOf('.')+1, fileName.length) || fileName
   }
 
-  onGetImageLabels = () => this.props.getImageLabels(this.state.image);
-  onGetImageWebLabels = () => this.props.getImageWebLabels(this.state.image);
-
   toggleOnImage = () => this.setState({fullscreen: true});
   toggleOffImage = () => this.setState({fullscreen: false});
 
@@ -66,6 +63,7 @@ class App extends Component {
           dropZoneOpened={dropZoneOpened} 
           onImageDrop={this.onImageDrop} 
           preview={preview}
+          image={this.state.image}
         />
 
         <section className="page_content">

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import DropZone from '../../UI/DropZone';
@@ -7,20 +7,29 @@ import {getImageLabels, getImageWebLabels} from '../../../store/actions/image';
 import './style.css';
 
 
-const MenuHeader = ({dropZoneOpened, onImageDrop, preview}) => {
-  return (
-    <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
-      <DropZone onImageDrop={onImageDrop} isEmpty={dropZoneOpened ? false : true} />
-      {preview && (
-        <section className="button_container">
-          <section className="buttons">
-            <MenuItem title='Web Detection' />
-            <MenuItem title='Label Detection' />
+
+class MenuHeader extends Component {
+
+  onGetImageLabels = image => this.props.getImageLabels(image);
+  onGetImageWebLabels = image => this.props.getImageWebLabels(image);
+
+  render() {
+    const {dropZoneOpened, onImageDrop, preview, image} = this.props;
+
+    return (
+      <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
+        <DropZone onImageDrop={onImageDrop} isEmpty={dropZoneOpened ? false : true} />
+        {preview && (
+          <section className="button_container">
+            <section className="buttons">
+              <MenuItem title='Web Detection' onItemClick={() => this.onGetImageWebLabels(image)} />
+              <MenuItem title='Label Detection' />
+            </section>
           </section>
-        </section>
-      ) }
-    </section>
-  )
+        ) }
+      </section>
+    )
+  }
 }
 
 const mapDispatchToProps = dispatch => {
