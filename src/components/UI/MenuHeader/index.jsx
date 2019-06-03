@@ -1,5 +1,6 @@
 import React from 'react';
 import DropZone from '../../UI/DropZone';
+import './style.css';
 
 
 const MenuHeader = ({dropZoneOpened, onImageDrop, preview}) => {
