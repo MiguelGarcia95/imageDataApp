@@ -3,7 +3,9 @@ import {connect} from 'react-redux';
 
 import DropZone from '../../UI/DropZone';
 import MenuItem from '../../UI/MenuItem';
-import {getImageLabels, getImageWebLabels} from '../../../store/actions/image.js';
+import {
+  getImageLabels, getImageWebLabels, getImageObjects, getImageProperties, getImageSafeSearch, getImageText
+} from '../../../store/actions/image.js';
 import './style.css';
 
 
@@ -12,6 +14,10 @@ class MenuHeader extends Component {
 
   onGetImageLabels = image => this.props.getImageLabels(this.props.image);
   onGetImageWebLabels = image => this.props.getImageWebLabels(this.props.image);
+  onGetImageObjects = image => this.props.getImageObjects(this.props.image);
+  onGetImageProperties = image => this.props.getImageProperties(this.props.image);
+  onGetImageSafeSearch = image => this.props.getImageSafeSearch(this.props.image);
+  onGetImageText = image => this.props.getImageText(this.props.image);
 
   render() {
     const {dropZoneOpened, onImageDrop, preview, image} = this.props;
@@ -36,6 +42,10 @@ const mapDispatchToProps = dispatch => {
   return {
     getImageLabels: image => dispatch(getImageLabels(image)),
     getImageWebLabels: image => dispatch(getImageWebLabels(image)),
+    getImageObjects: image => dispatch(getImageObjects(image)),
+    getImageProperties: image => dispatch(getImageProperties(image)),
+    getImageSafeSearch: image => dispatch(getImageSafeSearch(image)),
+    getImageText: image => dispatch(getImageText(image)),
   }
 }
 
