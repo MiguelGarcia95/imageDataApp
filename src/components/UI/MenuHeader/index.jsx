@@ -30,6 +30,10 @@ class MenuHeader extends Component {
             <section className="buttons">
               <MenuItem title='Web Detection' onItemClick={() => this.onGetImageWebLabels(image)} />
               <MenuItem title='Label Detection' onItemClick={() => this.onGetImageLabels(image)}  />
+              <MenuItem title='Object Detection' onItemClick={() => this.onGetImageObjects(image)}  />
+              <MenuItem title='Image Properties' onItemClick={() => this.onGetImageProperties(image)}  />
+              <MenuItem title='Image Safe Search' onItemClick={() => this.onGetImageSafeSearch(image)}  />
+              <MenuItem title='Text Detection' onItemClick={() => this.onGetImageText(image)}  />
             </section>
           </section>
         ) }
