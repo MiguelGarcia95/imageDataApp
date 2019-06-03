@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Preview from './UI/Preview';
 import MenuHeader from './UI/MenuHeader';
 import './style.css';
@@ -61,12 +63,32 @@ class App extends Component {
 
         {isLoading && <section>...Loading</section> }
 
-        <MenuHeader 
+        {/* <MenuHeader 
           dropZoneOpened={dropZoneOpened} 
           onImageDrop={this.onImageDrop} 
           preview={preview}
           image={this.state.image}
-        />
+        /> */}
+
+        <section className="dropzone">
+          <section className="drop_grid"></section>
+          <section className="drop_content">
+            <section className="center_image">
+              <FontAwesomeIcon 
+                icon={faPlus} size="2x" color='white'
+                className='icon plus' 
+              />
+              <FontAwesomeIcon 
+                icon={faImage} size="6x" color='white'
+                className='icon image' 
+              />
+            </section>
+            <section className="content">
+              <p>Drop Image Here</p>
+              <small>Or Click To Open FIle</small>
+            </section>
+          </section>
+        </section>
 
         <section className="page_content">
           <Preview 
