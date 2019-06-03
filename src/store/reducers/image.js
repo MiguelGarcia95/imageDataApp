@@ -32,7 +32,7 @@ const reducer = (state = initialState, action) => {
         // imageText: action.payload.imageText.textDetection,
         imageText: {
           textAnnotations: action.payload.imageText.textDetection.textAnnotations,
-          fullTextAnnotations: action.payload.imageText.textDetection.fullTextAnnotations,
+          fullTextAnnotations: action.payload.imageText.textDetection.fullTextAnnotation,
         },
       }
     case actionTypes.SET_IMAGE_PROPERTIES:
