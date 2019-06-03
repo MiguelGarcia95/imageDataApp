@@ -53,10 +53,13 @@ class App extends Component {
   }
 
   render() {
-    const {preview, type} = this.state.image;
+    const {preview} = this.state.image;
+    const {isLoading, imageLabels, imageWebLabels} = this.props;
     const dropZoneOpened = preview ? true : false ;
     return (
       <section className="app">
+
+        {isLoading && <section>...Loading</section> }
 
         <MenuHeader 
           dropZoneOpened={dropZoneOpened} 
@@ -84,6 +87,7 @@ const mapStateToProps = state => {
   return {
     imageLabels: state.image.imageLabels,
     imageWebLabels: state.image.imageWebLabels,
+    isLoading: state.ui.isLoading
   }
 }
 

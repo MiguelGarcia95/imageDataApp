@@ -11,7 +11,6 @@ const fs = require("fs");
 
 exports.imageLabelDetection = functions.https.onRequest(async (request, response) => {
   cors(request, response, async () => {
-    
     const body = JSON.parse(request.body);
     const incomingImage = Buffer(body.image, 'base64');
     const imagePath = `/tmp/image.${body.type}`;
@@ -29,6 +28,7 @@ exports.imageLabelDetection = functions.https.onRequest(async (request, response
       })
     }
     catch (error) {
+      console.log(error);
       return response.send(500, error);
     }
   })
@@ -52,7 +52,25 @@ exports.imageWebDetection = functions.https.onRequest(async (request, response) 
       })
     }
     catch (error) {
+      console.log(error);
       return response.send(500, error);
     }
   })
+})
+
+
+exports.imageObjectDetection = functions.https.onRequest(async (request, response) => {
+  
+})
+
+exports.imageTextDetection = functions.https.onRequest(async (request, response) => {
+  
+})
+
+exports.imagePropertiesDetection = functions.https.onRequest(async (request, response) => {
+  
+})
+
+exports.imageSafeSearchDetection = functions.https.onRequest(async (request, response) => {
+  
 })
