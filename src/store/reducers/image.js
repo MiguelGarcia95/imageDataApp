@@ -29,7 +29,6 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_IMAGE_TEXT:
       return {
         ...state,
-        // imageText: action.payload.imageText.textDetection,
         imageText: {
           textAnnotations: action.payload.imageText.textDetection.textAnnotations,
           fullTextAnnotations: action.payload.imageText.textDetection.fullTextAnnotation,
@@ -39,13 +38,15 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         imageProperties: action.payload.imageProperties.propertyDetection,
-        // imageProperties: action.payload.imageProperties.propertyDetection.imagePropertiesAnnotation
+        imageProperties: {
+          imagePropertiesAnnotation: action.payload.imageProperties.propertyDetection.imagePropertiesAnnotation,
+          cropHintsAnnotation: action.payload.imageProperties.propertyDetection.cropHintsAnnotation,
+        }
       }
     case actionTypes.SET_IMAGE_SAFE_SEARCH:
       return {
         ...state,
-        imageSafeSearch: action.payload.imageSafeSearch.safeSearchDetection
-        // imageSafeSearch: action.payload.imageSafeSearch.safeSearchDetection.safeSearchAnnotation
+        imageSafeSearch: action.payload.imageSafeSearch.safeSearchDetection.safeSearchAnnotation
       }
     default:
       return state;
