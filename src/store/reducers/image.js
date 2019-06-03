@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SET_IMAGE_LABELS:
       return {
         ...state,
-        imageLabels: action.payload.imageLabels
+        imageLabels: action.payload.imageLabels.labelDetection.labelAnnotations
       }
     case actionTypes.SET_IMAGE_WEB_LABELS:
         return {

@@ -23,7 +23,7 @@ class MenuHeader extends Component {
           <section className="button_container">
             <section className="buttons">
               <MenuItem title='Web Detection' onItemClick={() => this.onGetImageWebLabels(image)} />
-              <MenuItem title='Label Detection' />
+              <MenuItem title='Label Detection' onItemClick={() => this.onGetImageLabels(image)}  />
             </section>
           </section>
         ) }
