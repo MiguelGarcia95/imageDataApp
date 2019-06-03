@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import {uiEndLoading, uiStartLoading} from './ui';
 
 const decodeBase64Image = (dataString) => {
   const matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
@@ -11,6 +12,7 @@ const decodeBase64Image = (dataString) => {
 export const getImageLabels = image => {
   return dispatch => {
     const imageBase64 = decodeBase64Image(image.base64);
+    dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection`, {
       method: 'POST',
       body: JSON.stringify({image: imageBase64, type: image.type})
@@ -23,9 +25,13 @@ export const getImageLabels = image => {
       }
     })
     .then(parsed => {
+      dispatch(uiEndLoading());
       dispatch(setImageLabels(parsed));
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      dispatch(uiEndLoading());
+      console.log(err)
+    });
   }
 }
 
@@ -43,6 +49,7 @@ export const setImageLabels = labels => {
 export const getImageWebLabels = image => {
   return dispatch => {
     const imageBase64 = decodeBase64Image(image.base64);
+    dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageWebDetection`, {
       method: 'POST',
       body: JSON.stringify({image: imageBase64, type: image.type})
@@ -55,9 +62,13 @@ export const getImageWebLabels = image => {
       }
     })
     .then(parsed => {
+      dispatch(uiEndLoading());
       dispatch(setImageWebLabels(parsed));
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      dispatch(uiEndLoading());
+      console.log(err);
+    });
   }
 }
 
