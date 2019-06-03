@@ -87,7 +87,11 @@ const mapStateToProps = state => {
   return {
     imageLabels: state.image.imageLabels,
     imageWebLabels: state.image.imageWebLabels,
-    isLoading: state.ui.isLoading
+    imageObjects: state.image.imageObjects,
+    imageText: state.image.imageText,
+    imageProperties: state.image.imageProperties,
+    imageSafeSearch: state.image.imageSafeSearch,
+    isLoading: state.ui.isLoading,
   }
 }
 
