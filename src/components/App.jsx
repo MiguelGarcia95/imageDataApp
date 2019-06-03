@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-// import {getImageLabels, getImageWebLabels} from '../store/actions/image.js';
 import Preview from './UI/Preview';
 import MenuHeader from './UI/MenuHeader';
 import './style.css';
@@ -37,11 +36,7 @@ class App extends Component {
 
   toggleOnImage = () => this.setState({fullscreen: true});
   toggleOffImage = () => this.setState({fullscreen: false});
-
   
-  // onGetImageLabels = () => this.props.getImageLabels(this.state.image);
-  // onGetImageWebLabels = () => this.props.getImageWebLabels(this.state.image);
-
   onImageDrop = file => {
     const image = file[0];
     let reader = new FileReader();
@@ -68,8 +63,6 @@ class App extends Component {
           onImageDrop={this.onImageDrop} 
           preview={preview}
           image={this.state.image}
-          // onGetImageLabels={this.onGetImageLabels}
-          // onGetImageWebLabels={this.onGetImageWebLabels}
         />
 
         <section className="page_content">
@@ -93,12 +86,5 @@ const mapStateToProps = state => {
     imageWebLabels: state.image.imageWebLabels,
   }
 }
-
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     getImageLabels: image => dispatch(getImageLabels(image)),
-//     getImageWebLabels: image => dispatch(getImageWebLabels(image)),
-//   }
-// }
 
 export default connect(mapStateToProps)(App);
