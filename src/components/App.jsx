@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Preview from './UI/Preview';
+import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
 import './style.css';
 
@@ -70,7 +71,8 @@ class App extends Component {
           image={this.state.image}
         /> */}
 
-        <section className="dropzone">
+        <DropZone onImageDrop={this.onImageDrop} />
+        {/* <section className="dropzone">
           <section className="drop_grid"></section>
           <section className="drop_content">
             <section className="center_image">
@@ -88,7 +90,7 @@ class App extends Component {
               <small>Or Click To Open FIle</small>
             </section>
           </section>
-        </section>
+        </section> */}
 
         <section className="page_content">
           <Preview 
