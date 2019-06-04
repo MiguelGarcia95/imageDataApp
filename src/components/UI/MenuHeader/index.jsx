@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
-import DropZone from '../../UI/DropZone';
 import MenuItem from '../../UI/MenuItem';
 import {
   getImageLabels, getImageWebLabels, getImageObjects, getImageProperties, getImageSafeSearch, getImageText
@@ -23,17 +21,15 @@ class MenuHeader extends Component {
     const {preview, image} = this.props;
 
     return (
-      <section className={`buttons ${image ? 'filled' : '' }`}>
+      <section className={`buttons ${preview ? 'opened' : '' }`}>
         {preview && (
           <section className="button_container">
-            <section className="buttons">
-              <MenuItem title='Web Detection' onItemClick={() => this.onGetImageWebLabels(image)} />
-              <MenuItem title='Label Detection' onItemClick={() => this.onGetImageLabels(image)}  />
-              <MenuItem title='Object Detection' onItemClick={() => this.onGetImageObjects(image)}  />
-              <MenuItem title='Image Properties' onItemClick={() => this.onGetImageProperties(image)}  />
-              <MenuItem title='Image Safe Search' onItemClick={() => this.onGetImageSafeSearch(image)}  />
-              <MenuItem title='Text Detection' onItemClick={() => this.onGetImageText(image)}  />
-            </section>
+            <MenuItem title='Web Detection' onItemClick={() => this.onGetImageWebLabels(image)} />
+            <MenuItem title='Label Detection' onItemClick={() => this.onGetImageLabels(image)}  />
+            <MenuItem title='Object Detection' onItemClick={() => this.onGetImageObjects(image)}  />
+            <MenuItem title='Image Properties' onItemClick={() => this.onGetImageProperties(image)}  />
+            <MenuItem title='Image Safe Search' onItemClick={() => this.onGetImageSafeSearch(image)}  />
+            <MenuItem title='Text Detection' onItemClick={() => this.onGetImageText(image)}  />
           </section>
         ) }
       </section>

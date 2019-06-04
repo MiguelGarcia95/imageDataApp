@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Preview from './UI/Preview';
 import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
@@ -58,18 +56,15 @@ class App extends Component {
   render() {
     const {preview} = this.state.image;
     const {isLoading, imageLabels, imageWebLabels} = this.props;
-    const dropZoneOpened = preview ? true : false ;
     return (
       <section className="app">
 
         {isLoading && <section>...Loading</section> }
 
-        {/* <MenuHeader 
-          dropZoneOpened={dropZoneOpened} 
-          onImageDrop={this.onImageDrop} 
+        <MenuHeader 
           preview={preview}
           image={this.state.image}
-        /> */}
+        />
 
         <DropZone onImageDrop={this.onImageDrop} preview={preview} />
 
