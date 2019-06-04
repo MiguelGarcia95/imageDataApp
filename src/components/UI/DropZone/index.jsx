@@ -4,26 +4,6 @@ import { faImage, faPlus } from '@fortawesome/free-solid-svg-icons';
 import {useDropzone} from 'react-dropzone';
 import './style.css'
 
-const Dragging = ({dragging}) => {
-  if (dragging) {
-    return (
-      <section className="drag_box dragging">
-        <section className="content">
-          <p>Drop The File here!</p>
-        </section>
-      </section>
-    )
-  } else {
-    return (
-      <section className="drag_box">
-        <section className="content">
-          <p>Drag Image here, or Click to Pick Image</p>
-        </section>
-      </section>
-    )
-  }
-}
-
 const DropZone = ({onImageDrop, preview}) => {
   const onDrop = useCallback((acceptedFiles, a) => {
     onImageDrop(acceptedFiles);
@@ -32,7 +12,6 @@ const DropZone = ({onImageDrop, preview}) => {
   return(
     <section {...getRootProps()} >
       <input {...getInputProps()} />      
-      {/* <Dragging dragging={isDragActive} /> */}
       <section className={`dropzone ${preview ? 'close' : ''}`} >
           <section className={`drop_grid ${isDragActive ? 'dragging' : '' }`}></section>
           <section className="drop_content">
