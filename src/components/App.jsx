@@ -71,26 +71,7 @@ class App extends Component {
           image={this.state.image}
         /> */}
 
-        <DropZone onImageDrop={this.onImageDrop} />
-        {/* <section className="dropzone">
-          <section className="drop_grid"></section>
-          <section className="drop_content">
-            <section className="center_image">
-              <FontAwesomeIcon 
-                icon={faPlus} size="2x" color='white'
-                className='icon-plus' 
-              />
-              <FontAwesomeIcon 
-                icon={faImage} size="6x" color='white'
-                className='icon-image' 
-              />
-            </section>
-            <section className="content">
-              <p>Drop Image Here</p>
-              <small>Or Click To Open FIle</small>
-            </section>
-          </section>
-        </section> */}
+        <DropZone onImageDrop={this.onImageDrop} preview={preview} />
 
         <section className="page_content">
           <Preview 

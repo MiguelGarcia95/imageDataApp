@@ -24,16 +24,16 @@ const Dragging = ({dragging}) => {
   }
 }
 
-const DropZone = ({onImageDrop}) => {
+const DropZone = ({onImageDrop, preview}) => {
   const onDrop = useCallback((acceptedFiles, a) => {
     onImageDrop(acceptedFiles);
   }, []);
   const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
   return(
-    <section {...getRootProps()}>
+    <section {...getRootProps()} >
       <input {...getInputProps()} />      
       {/* <Dragging dragging={isDragActive} /> */}
-      <section className="dropzone">
+      <section className={`dropzone ${preview ? 'close' : ''}`} >
           <section className={`drop_grid ${isDragActive ? 'dragging' : '' }`}></section>
           <section className="drop_content">
             <section className="center_image">
