@@ -20,11 +20,10 @@ class MenuHeader extends Component {
   onGetImageText = image => this.props.getImageText(this.props.image);
 
   render() {
-    const {dropZoneOpened, onImageDrop, preview, image} = this.props;
+    const {preview, image} = this.props;
 
     return (
-      <section className={`drop_zone_container ${dropZoneOpened ? 'filled' : '' }`}>
-        <DropZone onImageDrop={onImageDrop} isEmpty={dropZoneOpened ? false : true} />
+      <section className={`buttons ${image ? 'filled' : '' }`}>
         {preview && (
           <section className="button_container">
             <section className="buttons">
