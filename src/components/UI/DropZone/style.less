@@ -7,6 +7,12 @@
   top: 0; bottom: 0; right: 0; left: 0;
   margin: auto;
   box-shadow: 0px 0px 10px 0px black;
+  cursor: pointer;
+  &:active {
+    transition: 0.5s;
+    transform: scale(0.95);
+    box-shadow: 0px 0px 1px 1px black;
+  }
   &.close {
     transform-origin: center center;
     transform: scale(0);
