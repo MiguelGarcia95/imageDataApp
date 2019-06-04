@@ -6,7 +6,7 @@ import './style.css';
 const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage}) => {
   return (
     <React.Fragment>
-      <section className="image_preview">
+      <section className={`image_preview ${preview ? 'opened' : ''}`}>
           {preview && (
             <section className="image" onClick={toggleOnImage} >
               <img src={preview} alt='User Image' />
