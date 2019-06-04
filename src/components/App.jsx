@@ -76,11 +76,11 @@ class App extends Component {
             <section className="center_image">
               <FontAwesomeIcon 
                 icon={faPlus} size="2x" color='white'
-                className='icon plus' 
+                className='icon-plus' 
               />
               <FontAwesomeIcon 
                 icon={faImage} size="6x" color='white'
-                className='icon image' 
+                className='icon-image' 
               />
             </section>
             <section className="content">
