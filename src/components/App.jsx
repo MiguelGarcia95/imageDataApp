@@ -22,13 +22,17 @@ class App extends Component {
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      this.setState({
-        image: {
-          base64: reader.result,
-          preview: URL.createObjectURL(file),
-          type: this.getFileType(file.name)
-        }
-      })
+      if (this.isFileImage(reader.result)) {
+        this.setState({
+          image: {
+            base64: reader.result,
+            preview: URL.createObjectURL(file),
+            type: this.getFileType(file.name)
+          }
+        })
+      } else {
+        console.log('error, file not an image')
+      }
     }
   }
 
