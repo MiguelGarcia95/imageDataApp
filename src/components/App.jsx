@@ -43,8 +43,8 @@ class App extends Component {
         this.setState({
           image: {
             base64: reader.result,
-            preview: URL.createObjectURL(file),
-            type: this.getFileType(file.name)
+            preview: URL.createObjectURL(image),
+            type: this.getFileType(image.name)
           }
         })
       } else {
@@ -60,23 +60,24 @@ class App extends Component {
       <section className="app">
 
         {isLoading && <Loading /> }
-
         {error && <Error error={error} onErrorClick={this.props.clearError} />}
 
-        <MenuHeader 
-          preview={preview}
-          image={this.state.image}
-        />
-
+        <MenuHeader preview={preview} image={this.state.image} />
         <DropZone onImageDrop={this.onImageDrop} preview={preview} />
-
-        <section className="page_content">
-          <Preview 
+        <Preview 
             preview={preview} 
             fullscreen={this.state.fullscreen}
             toggleOnImage={this.toggleOnImage}
             toggleOffImage={this.toggleOffImage}
           />
+
+        <section className="page_content">
+          {/* <Preview 
+            preview={preview} 
+            fullscreen={this.state.fullscreen}
+            toggleOnImage={this.toggleOnImage}
+            toggleOffImage={this.toggleOffImage}
+          /> */}
         </section>
 
 
