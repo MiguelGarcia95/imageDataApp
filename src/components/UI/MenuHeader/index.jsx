@@ -24,14 +24,19 @@ class MenuHeader extends Component {
     return (
       <section className={`buttons ${preview ? 'opened' : '' }`}>
         {preview && (
-          <section className="button_container">
-            <MenuItem title='Web' icon={faSearch} onItemClick={() => this.onGetImageWebLabels(image)} />
-            <MenuItem title='Label' icon={faTags} onItemClick={() => this.onGetImageLabels(image)}  />
-            <MenuItem title='Objects' icon={faObjectUngroup} onItemClick={() => this.onGetImageObjects(image)}  />
-            <MenuItem title='Properties' icon={faCogs} onItemClick={() => this.onGetImageProperties(image)}  />
-            <MenuItem title='Safe Search' icon={faChild} onItemClick={() => this.onGetImageSafeSearch(image)}  />
-            <MenuItem title='Text' icon={faFont} onItemClick={() => this.onGetImageText(image)}  />
-          </section>
+          <React.Fragment>
+            <section className="sub-title">
+              What do you want to do? 
+            </section>
+            <section className="button_container">
+              <MenuItem title='Web' icon={faSearch} onItemClick={() => this.onGetImageWebLabels(image)} />
+              <MenuItem title='Label' icon={faTags} onItemClick={() => this.onGetImageLabels(image)}  />
+              <MenuItem title='Objects' icon={faObjectUngroup} onItemClick={() => this.onGetImageObjects(image)}  />
+              <MenuItem title='Properties' icon={faCogs} onItemClick={() => this.onGetImageProperties(image)}  />
+              <MenuItem title='Safe Search' icon={faChild} onItemClick={() => this.onGetImageSafeSearch(image)}  />
+              <MenuItem title='Text' icon={faFont} onItemClick={() => this.onGetImageText(image)}  />
+            </section>
+          </React.Fragment>
         ) }
       </section>
     )

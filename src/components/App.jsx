@@ -61,6 +61,11 @@ class App extends Component {
 
         {isLoading && <Loading /> }
         {error && <Error error={error} onErrorClick={this.props.clearError} />}
+        {!preview && (
+          <section className="title">
+            Upload Image to Analyze. 
+          </section>
+        )}
 
         <MenuHeader preview={preview} image={this.state.image} />
         <DropZone onImageDrop={this.onImageDrop} preview={preview} />
@@ -72,12 +77,6 @@ class App extends Component {
           />
 
         <section className="page_content">
-          {/* <Preview 
-            preview={preview} 
-            fullscreen={this.state.fullscreen}
-            toggleOnImage={this.toggleOnImage}
-            toggleOffImage={this.toggleOffImage}
-          /> */}
         </section>
 
 
