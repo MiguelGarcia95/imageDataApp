@@ -1,4 +1,4 @@
-import {IMAGE_ERROR} from './actionTypes';
+import {IMAGE_ERROR, CLEAR_IMAGE_ERROR} from './actionTypes';
 
 export const displayError = error => {
   return {
@@ -6,5 +6,11 @@ export const displayError = error => {
     payload: {
       error: error
     }
+  }
+}
+
+export const clearError = () => {
+  return {
+    type: CLEAR_IMAGE_ERROR
   }
 }
