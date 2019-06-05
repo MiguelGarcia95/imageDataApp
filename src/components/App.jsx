@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {displayError} from '../store/actions/error';
+import {displayError, clearError} from '../store/actions/error';
 import Preview from './UI/Preview';
 import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
@@ -51,6 +51,17 @@ class App extends Component {
     }
   }
 
+  displayError = () => {
+    setTimeout(() => {
+      this.props.clearError();
+    }, 1000000);
+    return (
+      <section className="error">
+        <p>{this.props.error}</p>
+      </section>
+    )
+  }
+
   render() {
     const {preview} = this.state.image;
     const {isLoading, error, imageLabels, imageWebLabels} = this.props;
@@ -58,6 +69,8 @@ class App extends Component {
       <section className="app">
 
         {isLoading && <Loading /> }
+
+        {error && this.displayError()}
 
         <MenuHeader 
           preview={preview}
@@ -96,7 +109,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    displayError: error => dispatch(displayError(error))
+    displayError: error => dispatch(displayError(error)),
+    clearError: () => dispatch(clearError()),
   }
 }
 
