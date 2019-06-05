@@ -58,6 +58,7 @@ class App extends Component {
     return (
       <section className="error">
         <p>{this.props.error}</p>
+
       </section>
     )
   }
