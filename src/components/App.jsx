@@ -60,8 +60,7 @@ class App extends Component {
     return (
       <section className="app">
 
-        {true && <Loading /> }
-        {/* {isLoading && <Loading /> } */}
+        {isLoading && <Loading /> }
 
         <MenuHeader 
           preview={preview}

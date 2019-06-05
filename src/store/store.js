@@ -3,10 +3,12 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import imageReducer from './reducers/image';
 import uiReducer from './reducers/ui';
+import errorReducer from './reducers/error';
 
 const rootReducer = combineReducers({
   image: imageReducer,
   ui: uiReducer,
+  error: errorReducer,
 });
 
 const store = createStore(
