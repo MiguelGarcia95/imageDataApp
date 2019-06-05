@@ -5,6 +5,7 @@ import Preview from './UI/Preview';
 import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
 import Loading from './UI/Loading';
+import Error from './UI/Error';
 import './style.css';
 
 class App extends Component {
@@ -55,12 +56,7 @@ class App extends Component {
     setTimeout(() => {
       this.props.clearError();
     }, 1000000);
-    return (
-      <section className="error">
-        <p>{this.props.error}</p>
-
-      </section>
-    )
+    return <Error error={this.props.error} />
   }
 
   render() {
