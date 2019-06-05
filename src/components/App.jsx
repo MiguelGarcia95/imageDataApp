@@ -36,6 +36,14 @@ class App extends Component {
     return fileName.substring(fileName.lastIndexOf('.')+1, fileName.length) || fileName
   }
 
+  isFileImage = base64 => {
+    if (base64.substring(0,4) === 'data') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   toggleOnImage = () => this.setState({fullscreen: true});
   toggleOffImage = () => this.setState({fullscreen: false});
   
@@ -56,7 +64,7 @@ class App extends Component {
 
   render() {
     const {preview} = this.state.image;
-    const {isLoading, imageLabels, imageWebLabels} = this.props;
+    const {isLoading, error, imageLabels, imageWebLabels} = this.props;
     return (
       <section className="app">
 
@@ -93,6 +101,7 @@ const mapStateToProps = state => {
     imageProperties: state.image.imageProperties,
     imageSafeSearch: state.image.imageSafeSearch,
     isLoading: state.ui.isLoading,
+    error: state.error.error
   }
 }
 
