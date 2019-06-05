@@ -34,6 +34,7 @@ class App extends Component {
   toggleOffImage = () => this.setState({fullscreen: false});
   
   onImageDrop = file => {
+    this.props.clearError();
     const image = file[0];
     let reader = new FileReader();
     reader.readAsDataURL(image);
