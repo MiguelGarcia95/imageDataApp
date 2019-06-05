@@ -52,12 +52,7 @@ class App extends Component {
     }
   }
 
-  displayError = () => {
-    setTimeout(() => {
-      this.props.clearError();
-    }, 1000000);
-    return <Error error={this.props.error} />
-  }
+  onErrorClick = () => this.props.clearError();
 
   render() {
     const {preview} = this.state.image;
@@ -67,7 +62,7 @@ class App extends Component {
 
         {isLoading && <Loading /> }
 
-        {error && this.displayError()}
+        {error && <Error error={error} onErrorClick={this.onErrorClick} />}
 
         <MenuHeader 
           preview={preview}
