@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {displayError} from '../store/actions/error';
 import Preview from './UI/Preview';
 import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
@@ -16,32 +17,12 @@ class App extends Component {
     fullscreen: false
   }
 
-
-  handleImageSelect = event => {
-    let file = event.target.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onloadend = () => {
-      if (this.isFileImage(reader.result)) {
-        this.setState({
-          image: {
-            base64: reader.result,
-            preview: URL.createObjectURL(file),
-            type: this.getFileType(file.name)
-          }
-        })
-      } else {
-        console.log('error, file not an image')
-      }
-    }
-  }
-
   getFileType = fileName => {
     return fileName.substring(fileName.lastIndexOf('.')+1, fileName.length) || fileName
   }
 
   isFileImage = base64 => {
-    if (base64.substring(0,4) === 'data') {
+    if (base64.substring(0,10) === 'data:image') {
       return true;
     } else {
       return false;
@@ -56,13 +37,17 @@ class App extends Component {
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onloadend = () => {
-      this.setState({
-        image: {
-          base64: reader.result,
-          preview: URL.createObjectURL(image),
-          type: this.getFileType(image.name)
-        }
-      })
+      if (this.isFileImage(reader.result)) {
+        this.setState({
+          image: {
+            base64: reader.result,
+            preview: URL.createObjectURL(file),
+            type: this.getFileType(file.name)
+          }
+        })
+      } else {
+        this.props.displayError('File submitted is not an image.');
+      }
     }
   }
 
@@ -109,4 +94,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    displayError: error => dispatch(displayError(error))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
