@@ -34,8 +34,8 @@ class App extends Component {
   toggleOffImage = () => this.setState({fullscreen: false});
   
   onImageDrop = file => {
-    this.props.clearError();
     const image = file[0];
+    this.props.clearError();
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onloadend = () => {
@@ -53,8 +53,6 @@ class App extends Component {
     }
   }
 
-  onErrorClick = () => this.props.clearError();
-
   render() {
     const {preview} = this.state.image;
     const {isLoading, error, imageLabels, imageWebLabels} = this.props;
@@ -63,7 +61,7 @@ class App extends Component {
 
         {isLoading && <Loading /> }
 
-        {error && <Error error={error} onErrorClick={this.onErrorClick} />}
+        {error && <Error error={error} onErrorClick={this.props.clearError} />}
 
         <MenuHeader 
           preview={preview}
