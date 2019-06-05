@@ -19,6 +19,20 @@ button:focus {
   max-height: 100%;
   background-color: gainsboro;
 
+  .title {
+    text-align: center;
+    position: absolute;
+    left: 0; right: 0;
+    top: 50px;
+    margin: auto;
+    font-size: 2em;
+    font-weight: 300;
+    transition: 0.5s;
+    &.closed {
+      transform: scale(0);
+    }
+  }
+
   .page_content {
     width: 100%;
     padding-top: 100px;

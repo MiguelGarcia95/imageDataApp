@@ -61,11 +61,10 @@ class App extends Component {
 
         {isLoading && <Loading /> }
         {error && <Error error={error} onErrorClick={this.props.clearError} />}
-        {!preview && (
-          <section className="title">
-            Upload Image to Analyze. 
-          </section>
-        )}
+
+        <section className={`title ${preview ? 'closed' : ''}`}>
+          <h1>Upload Image to Analyze.</h1> 
+        </section>
 
         <MenuHeader preview={preview} image={this.state.image} />
         <DropZone onImageDrop={this.onImageDrop} preview={preview} />
