@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import {uiEndLoading, uiStartLoading} from './ui';
+import {displayError} from './error';
 
 const decodeBase64Image = (dataString) => {
   const matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
@@ -30,7 +31,8 @@ export const getImageLabels = image => {
     })
     .catch(err => {
       dispatch(uiEndLoading());
-      console.log(err)
+      dispatch(displayError(err));
+      console.log(err);
     });
   }
 }
@@ -67,6 +69,7 @@ export const getImageWebLabels = image => {
     })
     .catch(err => {
       dispatch(uiEndLoading());
+      dispatch(displayError(err));
       console.log(err);
     });
   }
@@ -104,6 +107,7 @@ export const getImageObjects = image => {
     })
     .catch(err => {
       dispatch(uiEndLoading());
+      dispatch(displayError(err));
       console.log(err);
     });
   }
@@ -141,6 +145,7 @@ export const getImageText = image => {
     })
     .catch(err => {
       dispatch(uiEndLoading());
+      dispatch(displayError(err));
       console.log(err);
     });
   }
@@ -178,6 +183,7 @@ export const getImageProperties = image => {
     })
     .catch(err => {
       dispatch(uiEndLoading());
+      dispatch(displayError(err));
       console.log(err);
     });
   }
@@ -215,6 +221,7 @@ export const getImageSafeSearch = image => {
     })
     .catch(err => {
       dispatch(uiEndLoading());
+      dispatch(displayError(err));
       console.log(err);
     });
   }
