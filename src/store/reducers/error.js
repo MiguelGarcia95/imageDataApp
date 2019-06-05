@@ -1,4 +1,4 @@
-import {ERROR} from '../actions/actionTypes';
+import {IMAGE_ERROR} from '../actions/actionTypes';
 
 const initialState = {
   error: null,
@@ -6,7 +6,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case ERROR: 
+    case IMAGE_ERROR: 
       return {
         ...state,
         error: action.payload.error

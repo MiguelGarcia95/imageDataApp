@@ -1,8 +1,8 @@
-import {ERROR} from './actionTypes';
+import {IMAGE_ERROR} from './actionTypes';
 
 export const displayError = error => {
   return {
-    type: ERROR,
+    type: IMAGE_ERROR,
     payload: {
       error: error
     }
