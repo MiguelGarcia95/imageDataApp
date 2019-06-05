@@ -4,7 +4,7 @@ import MenuItem from '../../UI/MenuItem';
 import {
   getImageLabels, getImageWebLabels, getImageObjects, getImageProperties, getImageSafeSearch, getImageText
 } from '../../../store/actions/image.js';
-import { faTimes, faTags, faChild, faObjectUngroup, faCogs, faWrench, faFont, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faTags, faChild, faObjectUngroup, faCogs, faWrench, faFont, faSearch } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 
 
