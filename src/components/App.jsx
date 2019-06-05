@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import Preview from './UI/Preview';
 import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
+import Loading from './UI/Loading';
 import './style.css';
 
 class App extends Component {
@@ -59,7 +60,8 @@ class App extends Component {
     return (
       <section className="app">
 
-        {isLoading && <section>...Loading</section> }
+        {true && <Loading /> }
+        {/* {isLoading && <Loading /> } */}
 
         <MenuHeader 
           preview={preview}

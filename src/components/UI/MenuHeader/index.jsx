@@ -22,8 +22,8 @@ class MenuHeader extends Component {
     const {preview, image} = this.props;
 
     return (
-      <section className={`buttons opened ${preview ? 'opened' : '' }`}>
-        {!preview && (
+      <section className={`buttons ${preview ? 'opened' : '' }`}>
+        {preview && (
           <section className="button_container">
             <MenuItem title='Web' icon={faSearch} onItemClick={() => this.onGetImageWebLabels(image)} />
             <MenuItem title='Label' icon={faTags} onItemClick={() => this.onGetImageLabels(image)}  />
