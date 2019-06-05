@@ -3,18 +3,27 @@
 .buttons {
   width: 1000px;
   height: 100px;
-  background-color: green;
+  opacity: 0;
   &.opened {
-
+    opacity: 1;
   }
   .button_container {
+    display: flex;
+    flex-direction: 'row';
+    background-color: green;
     .button {
       float: left;
-      .icon {
+      flex: 1;
+      height: 100px;
+      .icon, p {
         float: left;
+        margin-top: 34px;
       }
       p {
         float: left;
+        color: white;
+        margin-left: 10px;
+        line-height: 32px;
       }
     }
   }
