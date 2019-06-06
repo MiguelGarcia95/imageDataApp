@@ -9,13 +9,15 @@ const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage, resetImage
       <section className={`image_preview ${preview ? 'opened' : ''}`}>
           {preview && (
             <React.Fragment >
-              <section className="reset_image">
-                <FontAwesomeIcon 
-                  className='reset_icon' 
-                  size='4x' color='white' 
-                  icon={faRedoAlt}  
-                  onClick={resetImage}
-                />
+              <section className="reset_container">
+                <section className="reset_image">
+                  <FontAwesomeIcon 
+                    className='reset_icon' 
+                    size='2x' color='white' 
+                    icon={faRedoAlt}  
+                    onClick={resetImage}
+                  />
+                </section>
               </section>
               <section className="image" onClick={toggleOnImage} >
                 <img src={preview} alt='User Image' />
