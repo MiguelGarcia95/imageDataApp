@@ -11,7 +11,7 @@ const decodeBase64Image = (dataString) => {
   }
 }
 
-export const resetImages = () => {
+export const resetImage = () => {
   return {
     type: actionTypes.RESET_IMAGE
   }

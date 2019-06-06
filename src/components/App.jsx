@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {displayError, clearError} from '../store/actions/error';
+import {resetImage} from '../store/actions/image';
 import Preview from './UI/Preview';
 import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
@@ -54,6 +55,17 @@ class App extends Component {
     }
   }
 
+  resetImage = () => {
+    this.setState({
+      image: {
+        base64: null,
+        preview: null,
+        type: null,
+      }
+    })
+    this.props.resetImage();
+  }
+
   render() {
     const {preview} = this.state.image;
     const {isLoading, error} = this.props;
@@ -74,6 +86,7 @@ class App extends Component {
           fullscreen={this.state.fullscreen}
           toggleOnImage={this.toggleOnImage}
           toggleOffImage={this.toggleOffImage}
+          resetImage={this.resetImage}
         />
 
         <DataContainer 
@@ -97,6 +110,7 @@ const mapDispatchToProps = dispatch => {
   return {
     displayError: error => dispatch(displayError(error)),
     clearError: () => dispatch(clearError()),
+    resetImage: () => dispatch(resetImage()),
   }
 }
 
