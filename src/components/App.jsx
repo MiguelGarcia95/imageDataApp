@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log(this.hasDataBeenFetched())
     if (prevProps.isLoading !== this.props.isLoading && this.hasDataBeenFetched()) {
       console.log('we have data')
     }
