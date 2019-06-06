@@ -66,6 +66,14 @@ class App extends Component {
     this.props.resetImage();
   }
 
+  hasDataBeenFetched = () => {
+
+  }
+
+  scrollDown = () => {
+    this.data.scrollIntoView({behavior: 'smooth'});
+  }
+
   render() {
     const {preview} = this.state.image;
     const {isLoading, error} = this.props;
@@ -89,8 +97,8 @@ class App extends Component {
           resetImage={this.resetImage}
         />
 
-        <DataContainer  />
-        {/* <DataContainer inputRef={el => this.data = el} /> */}
+        {/* <DataContainer  /> */}
+        <DataContainer inputRef={el => this.data = el} />
 
       </section>
     );
@@ -100,7 +108,13 @@ class App extends Component {
 const mapStateToProps = state => {
   return {
     isLoading: state.ui.isLoading,
-    error: state.error.error
+    error: state.error.error,
+    imageLabelsSuccess: state.image.imageLabelsSuccess,
+    imageWebLabelsSuccess: state.image.imageWebLabelsSuccess,
+    imageObjectsSuccess: state.image.imageObjectsSuccess,
+    imageTextSuccess: state.image.imageTextSuccess,
+    imagePropertiesSuccess: state.image.imagePropertiesSuccess,
+    imageSafeSearchSuccess: state.image.imageSafeSearchSuccess,
   }
 }
 

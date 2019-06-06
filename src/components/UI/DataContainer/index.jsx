@@ -7,8 +7,8 @@ import './style.css';
 class DataContainer extends Component {
   render() {
     return (
-      <section className='data_container' ref={el => this.data = el} >
-                
+      <section className='data_container' >
+
       </section>
     )
   }
