@@ -11,6 +11,12 @@ const decodeBase64Image = (dataString) => {
   }
 }
 
+export const resetImages = () => {
+  return {
+    type: actionTypes.RESET_IMAGE
+  }
+}
+
 export const getImageLabels = image => {
   return dispatch => {
     const imageBase64 = decodeBase64Image(image.base64);

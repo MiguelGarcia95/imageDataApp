@@ -11,6 +11,16 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
+    case actionTypes.IMAGE_ERROR:
+      return {
+        ...state,
+        imageLabels: null,
+        imageWebLabels: null,
+        imageObjects: null,
+        imageText: null,
+        imageProperties: null,
+        imageSafeSearch: null,
+      }
     case actionTypes.SET_IMAGE_LABELS:
       return {
         ...state,
