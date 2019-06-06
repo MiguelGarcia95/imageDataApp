@@ -8,7 +8,7 @@ class DataContainer extends Component {
   render() {
     return (
       <section className='data_container' >
-
+        <WebLabels labels={this.props.imageWebLabels} />
       </section>
     )
   }

@@ -6,9 +6,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch(action.type) {
-    case IMAGE_ERROR: 
-    console.log(action.payload.error)
-    console.log(action.payload.error.message)
+    case IMAGE_ERROR:
       return {
         ...state,
         error: action.payload.error.message

@@ -56,7 +56,7 @@ class App extends Component {
           }
         })
       } else {
-        this.props.displayError('File submitted is not an image.');
+        this.props.displayError({message: 'File submitted is not an image.'});
       }
     }
   }

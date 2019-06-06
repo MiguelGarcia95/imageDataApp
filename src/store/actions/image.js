@@ -39,7 +39,6 @@ export const getImageLabels = image => {
     .catch(err => {
       dispatch(uiEndLoading());
       dispatch(displayError(err));
-      console.log(err);
     });
   }
 }
@@ -77,7 +76,6 @@ export const getImageWebLabels = image => {
     .catch(err => {
       dispatch(uiEndLoading());
       dispatch(displayError(err));
-      console.log(err);
     });
   }
 }
@@ -115,7 +113,6 @@ export const getImageObjects = image => {
     .catch(err => {
       dispatch(uiEndLoading());
       dispatch(displayError(err));
-      console.log(err);
     });
   }
 }
@@ -191,7 +188,6 @@ export const getImageProperties = image => {
     .catch(err => {
       dispatch(uiEndLoading());
       dispatch(displayError(err));
-      console.log(err);
     });
   }
 }
@@ -229,7 +225,6 @@ export const getImageSafeSearch = image => {
     .catch(err => {
       dispatch(uiEndLoading());
       dispatch(displayError(err));
-      console.log(err);
     });
   }
 }
