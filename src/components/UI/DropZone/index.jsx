@@ -16,14 +16,8 @@ const DropZone = ({onImageDrop, preview}) => {
           <section className={`drop_grid ${isDragActive ? 'dragging' : '' }`}></section>
           <section className="drop_content">
             <section className="center_image">
-              <FontAwesomeIcon 
-                icon={faPlus} size="2x" color='white'
-                className='icon-plus' 
-              />
-              <FontAwesomeIcon 
-                icon={faImage} size="6x" color='white'
-                className='icon-image' 
-              />
+              <FontAwesomeIcon icon={faPlus} size="2x" color='white' className='icon-plus' />
+              <FontAwesomeIcon icon={faImage} size="6x" color='white' className='icon-image' />
             </section>
             <section className="content">
               <p>Drop Image Here</p>
