@@ -4,6 +4,7 @@ import {displayError, clearError} from '../store/actions/error';
 import Preview from './UI/Preview';
 import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
+import DataContainer from './UI/DataContainer';
 import Loading from './UI/Loading';
 import Error from './UI/Error';
 import './style.css';
@@ -55,7 +56,7 @@ class App extends Component {
 
   render() {
     const {preview} = this.state.image;
-    const {isLoading, error, imageLabels, imageWebLabels} = this.props;
+    const {isLoading, error} = this.props;
     return (
       <section className="app">
 
@@ -69,14 +70,15 @@ class App extends Component {
         <MenuHeader preview={preview} image={this.state.image} />
         <DropZone onImageDrop={this.onImageDrop} preview={preview} />
         <Preview 
-            preview={preview} 
-            fullscreen={this.state.fullscreen}
-            toggleOnImage={this.toggleOnImage}
-            toggleOffImage={this.toggleOffImage}
-          />
+          preview={preview} 
+          fullscreen={this.state.fullscreen}
+          toggleOnImage={this.toggleOnImage}
+          toggleOffImage={this.toggleOffImage}
+        />
 
-        <section className="page_content">
-        </section>
+        <DataContainer 
+          inputRef={el => this.data = el}
+        />
 
 
       </section>
@@ -86,12 +88,6 @@ class App extends Component {
 
 const mapStateToProps = state => {
   return {
-    imageLabels: state.image.imageLabels,
-    imageWebLabels: state.image.imageWebLabels,
-    imageObjects: state.image.imageObjects,
-    imageText: state.image.imageText,
-    imageProperties: state.image.imageProperties,
-    imageSafeSearch: state.image.imageSafeSearch,
     isLoading: state.ui.isLoading,
     error: state.error.error
   }
