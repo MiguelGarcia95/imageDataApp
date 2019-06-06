@@ -43,6 +43,17 @@ class MenuHeader extends Component {
   }
 }
 
+const mapStateToprops = state => {
+  return {
+    imageLabelsSuccess: state.image.imageLabelsSuccess,
+    imageWebLabelsSuccess: state.image.imageWebLabelsSuccess,
+    imageObjectsSuccess: state.image.imageObjectsSuccess,
+    imageTextSuccess: state.image.imageTextSuccess,
+    imagePropertiesSuccess: state.image.imagePropertiesSuccess,
+    imageSafeSearchSuccess: state.image.imageSafeSearchSuccess,
+  }
+}
+
 const mapDispatchToProps = dispatch => {
   return {
     getImageLabels: image => dispatch(getImageLabels(image)),
@@ -54,4 +65,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(MenuHeader);
+export default connect(mapStateToprops, mapDispatchToProps)(MenuHeader);
