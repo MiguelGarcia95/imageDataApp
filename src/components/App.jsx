@@ -89,10 +89,8 @@ class App extends Component {
           resetImage={this.resetImage}
         />
 
-        <DataContainer 
-          inputRef={el => this.data = el}
-        />
-
+        <DataContainer  />
+        {/* <DataContainer inputRef={el => this.data = el} /> */}
 
       </section>
     );
