@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 
 import WebLabels from '../Data/WebLabels';
+import SimilarImages from '../Data/SimilarImages';
 import './style.css';
 
 class DataContainer extends Component {
@@ -9,6 +10,7 @@ class DataContainer extends Component {
     return (
       <section className='data_container' >
         <WebLabels labels={this.props.imageWebLabels} />
+        <SimilarImages images={this.props.imageWebLabels} />
       </section>
     )
   }

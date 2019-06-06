@@ -1,6 +1,6 @@
-import React from 'react';
+import React from './node_modules/react';
 
-function SimilarImages({Images}) {
+function SimilarImages({images}) {
   return (
     <section>
             

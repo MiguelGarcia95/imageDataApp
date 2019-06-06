@@ -15,7 +15,7 @@ const displayLabels = labels => {
   if (!labels) return;
   return labels.webEntities.map((label, index) => {
     return (
-      <section>
+      <section key={index} >
         <section className="name"><p>{label.description}</p></section>
       </section>
     )
