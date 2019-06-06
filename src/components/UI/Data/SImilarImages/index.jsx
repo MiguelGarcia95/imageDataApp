@@ -1,6 +1,6 @@
 import React from 'react';
 
-displayMatchingImages = images => {
+const displayMatchingImages = images => {
   return images.fullMatchingImages.map((image, index) => {
     return (
       <section>
@@ -10,7 +10,7 @@ displayMatchingImages = images => {
   })
 }
 
-displayPartialMatchingImages = images => {
+const displayPartialMatchingImages = images => {
   return images.partialMatchingImages.map((image, index) => {
     return (
       <section>
@@ -20,7 +20,7 @@ displayPartialMatchingImages = images => {
   })
 }
 
-displayPagesWithMatchingImages = images => {
+const displayPagesWithMatchingImages = images => {
   return images.pagesWithMatchingImages.map((image, index) => {
     return (
       <section>
@@ -30,7 +30,7 @@ displayPagesWithMatchingImages = images => {
   })
 }
 
-displayVisuallySimilaryImages = images => {
+const displayVisuallySimilaryImages = images => {
   return images.visuallySimilaryImages.map((image, index) => {
     return (
       <section>
