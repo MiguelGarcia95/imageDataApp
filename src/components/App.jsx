@@ -20,6 +20,12 @@ class App extends Component {
     fullscreen: false
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.isLoading !== this.props.isLoading && this.hasDataBeenFetched()) {
+      console.log('we have data')
+    }
+  }
+
   getFileType = fileName => {
     return fileName.substring(fileName.lastIndexOf('.')+1, fileName.length) || fileName
   }
@@ -67,7 +73,15 @@ class App extends Component {
   }
 
   hasDataBeenFetched = () => {
+    const {      
+      imageLabelsSuccess, imageWebLabelsSuccess, imageObjectsSuccess, 
+      imageTextSuccess, imagePropertiesSuccess, imageSafeSearchSuccess
+    } = this.props;
 
+    if (imageLabelsSuccess || imageWebLabelsSuccess || imageObjectsSuccess || imageTextSuccess || imagePropertiesSuccess || imageSafeSearchSuccess) {
+      return true;
+    } 
+    return false;
   }
 
   scrollDown = () => {
