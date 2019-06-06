@@ -21,9 +21,8 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.hasDataBeenFetched())
     if (prevProps.isLoading !== this.props.isLoading && this.hasDataBeenFetched()) {
-      console.log('we have data')
+      this.scrollDown();
     }
   }
 
@@ -85,9 +84,7 @@ class App extends Component {
     return false;
   }
 
-  scrollDown = () => {
-    this.data.scrollIntoView({behavior: 'smooth'});
-  }
+  scrollDown = () => this.data.scrollIntoView({behavior: 'smooth'});
 
   render() {
     const {preview} = this.state.image;
