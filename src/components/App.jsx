@@ -84,7 +84,7 @@ class App extends Component {
     return false;
   }
 
-  scrollDown = () => this.data.scrollIntoView({behavior: 'smooth'});
+  scrollDown = () => this.dataContainer.scrollIntoView({behavior: 'smooth'});
 
   render() {
     const {preview} = this.state.image;
@@ -110,7 +110,8 @@ class App extends Component {
         />
 
         {/* <DataContainer  /> */}
-        <DataContainer inputRef={el => this.data = el} />
+        <section ref={el => this.dataContainer = el}  ></section>
+        <DataContainer />
 
       </section>
     );
