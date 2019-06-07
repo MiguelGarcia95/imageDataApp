@@ -24,10 +24,10 @@ export const getImageLabels = image => {
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection`, {
       method: 'POST',
-      headers: {
-        'X-Content-Type-Options': 'nosniff',
-        'Content-Type': 'text/html'
-      },
+      // headers: {
+      //   // 'X-Content-Type-Options': 'nosniff',
+      //   'Content-Type': 'text/html'
+      // },
       body: JSON.stringify({image: imageBase64, type: image.type})
     })
     .then(res => {
@@ -66,10 +66,10 @@ export const getImageWebLabels = image => {
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageWebDetection`, {
       method: 'POST',
-      headers: {
-        'X-Content-Type-Options': 'nosniff',
-        'Content-Type': 'text/html'
-      },
+      // headers: {
+      //   // 'X-Content-Type-Options': 'nosniff',
+      //   'Content-Type': 'text/html'
+      // },
       body: JSON.stringify({image: imageBase64, type: image.type})
     })
     .then(res => {
@@ -108,10 +108,10 @@ export const getImageObjects = image => {
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageObjectDetection`, {
       method: 'POST',
-      headers: {
-        'X-Content-Type-Options': 'nosniff',
-        'Content-Type': 'text/html'
-      },
+      // headers: {
+      //   // 'X-Content-Type-Options': 'nosniff',
+      //   'Content-Type': 'text/html'
+      // },
       body: JSON.stringify({image: imageBase64, type: image.type})
     })
     .then(res => {
@@ -150,10 +150,10 @@ export const getImageText = image => {
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageTextDetection`, {
       method: 'POST',
-      headers: {
-        'X-Content-Type-Options': 'nosniff',
-        'Content-Type': 'text/html'
-      },
+      // headers: {
+      //   // 'X-Content-Type-Options': 'nosniff',
+      //   'Content-Type': 'text/html'
+      // },
       body: JSON.stringify({image: imageBase64, type: image.type})
     })
     .then(res => {
@@ -193,10 +193,10 @@ export const getImageProperties = image => {
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imagePropertiesDetection`, {
       method: 'POST',
-      headers: {
-        'X-Content-Type-Options': 'nosniff',
-        'Content-Type': 'text/html'
-      },
+      // headers: {
+      //   // 'X-Content-Type-Options': 'nosniff',
+      //   'Content-Type': 'text/html'
+      // },
       body: JSON.stringify({image: imageBase64, type: image.type})
     })
     .then(res => {
@@ -235,10 +235,10 @@ export const getImageSafeSearch = image => {
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageSafeSearchDetection`, {
       method: 'POST',
-      headers: {
-        'X-Content-Type-Options': 'nosniff',
-        'Content-Type': 'text/html'
-      },
+      // headers: {
+      //   // 'X-Content-Type-Options': 'nosniff',
+      //   'Content-Type': 'text/html'
+      // },
       body: JSON.stringify({image: imageBase64, type: image.type})
     })
     .then(res => {
