@@ -6,14 +6,13 @@ const displayMatchingImages = images => {
   return images.fullMatchingImages.map((image, index) => {
     if (index > 5) {
       return (
-        <LazyLoad>
-        {/* <LazyLoad height={762} offsetVertical={300}> */}
+        <LazyLoad offsetVertical={300}>
           <img src='http://apod.nasa.gov/apod/image/1502/HDR_MVMQ20Feb2015ouellet1024.jpg' />
         </LazyLoad>
       )
     } else {
       return (
-        <LazyLoad>
+        <LazyLoad offsetVertical={300}>
            <img className='similar_web_images' src={image.url} />
         </LazyLoad>
       )
@@ -25,7 +24,7 @@ const displayPartialMatchingImages = images => {
   if (!images) return;
   return images.partialMatchingImages.map((image, index) => {
     return (
-      <LazyLoad>
+      <LazyLoad offsetVertical={300}>
          <img className='similar_web_images' src={image.url} />
       </LazyLoad>
     ) 
@@ -36,7 +35,7 @@ const displayPagesWithMatchingImages = images => {
   if (!images) return;
   return images.pagesWithMatchingImages.map((image, index) => {
     return (
-      <LazyLoad>
+      <LazyLoad offsetVertical={300}>
          <img className='similar_web_images' src={image.url} />
       </LazyLoad>
     )
@@ -47,7 +46,7 @@ const displayVisuallySimilarImages = images => {
   if (!images) return;
   return images.visuallySimilarImages.map((image, index) => {
     return (
-      <LazyLoad>
+      <LazyLoad offsetVertical={300}>
          <img className='similar_web_images' src={image.url} />
       </LazyLoad>
     )
