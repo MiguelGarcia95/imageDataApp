@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 import {uiEndLoading, uiStartLoading} from './ui';
-import {displayError} from './error';
+import {displayError, clearError} from './error';
 
 const decodeBase64Image = (dataString) => {
   const matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
@@ -19,6 +19,7 @@ export const resetImage = () => {
 
 export const getImageLabels = image => {
   return dispatch => {
+    dispatch(clearError());
     const imageBase64 = decodeBase64Image(image.base64);
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageLabelDetection`, {
@@ -56,6 +57,7 @@ export const setImageLabels = labels => {
 
 export const getImageWebLabels = image => {
   return dispatch => {
+    dispatch(clearError());
     const imageBase64 = decodeBase64Image(image.base64);
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageWebDetection`, {
@@ -93,6 +95,7 @@ export const setImageWebLabels = labels => {
 
 export const getImageObjects = image => {
   return dispatch => {
+    dispatch(clearError());
     const imageBase64 = decodeBase64Image(image.base64);
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageObjectDetection`, {
@@ -130,6 +133,7 @@ export const setImageObjects = objects => {
 
 export const getImageText = image => {
   return dispatch => {
+    dispatch(clearError());
     const imageBase64 = decodeBase64Image(image.base64);
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageTextDetection`, {
@@ -168,6 +172,7 @@ export const setImageText = text => {
 
 export const getImageProperties = image => {
   return dispatch => {
+    dispatch(clearError());
     const imageBase64 = decodeBase64Image(image.base64);
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imagePropertiesDetection`, {
@@ -205,6 +210,7 @@ export const setImageProperties = properties => {
 
 export const getImageSafeSearch = image => {
   return dispatch => {
+    dispatch(clearError());
     const imageBase64 = decodeBase64Image(image.base64);
     dispatch(uiStartLoading());
     fetch(`https://us-central1-image-labeled-search.cloudfunctions.net/imageSafeSearchDetection`, {

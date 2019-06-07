@@ -1,26 +1,56 @@
 import React from 'react';
+import LazyLoad from 'react-lazy-load';
 
 const displayMatchingImages = images => {
+  if (!images) return;
   return images.fullMatchingImages.map((image, index) => {
-    return <img className='similar_web_images' src={image.url} />
+    if (index > 5) {
+      return (
+        <LazyLoad>
+        {/* <LazyLoad height={762} offsetVertical={300}> */}
+          <img src='http://apod.nasa.gov/apod/image/1502/HDR_MVMQ20Feb2015ouellet1024.jpg' />
+        </LazyLoad>
+      )
+    } else {
+      return (
+        <LazyLoad>
+           <img className='similar_web_images' src={image.url} />
+        </LazyLoad>
+      )
+    }
   })
 }
 
 const displayPartialMatchingImages = images => {
+  if (!images) return;
   return images.partialMatchingImages.map((image, index) => {
-    return <img className='similar_web_images' src={image.url} /> 
+    return (
+      <LazyLoad>
+         <img className='similar_web_images' src={image.url} />
+      </LazyLoad>
+    ) 
   })
 }
 
 const displayPagesWithMatchingImages = images => {
+  if (!images) return;
   return images.pagesWithMatchingImages.map((image, index) => {
-    return <img className='similar_web_images' src={image.url} />
+    return (
+      <LazyLoad>
+         <img className='similar_web_images' src={image.url} />
+      </LazyLoad>
+    )
   })
 }
 
-const displayVisuallySimilaryImages = images => {
-  return images.visuallySimilaryImages.map((image, index) => {
-    return <img className='similar_web_images' src={image.url} />
+const displayVisuallySimilarImages = images => {
+  if (!images) return;
+  return images.visuallySimilarImages.map((image, index) => {
+    return (
+      <LazyLoad>
+         <img className='similar_web_images' src={image.url} />
+      </LazyLoad>
+    )
   })
 }
 
@@ -30,13 +60,13 @@ const displayVisuallySimilaryImages = images => {
 // visuallySimilaryImages,
 // bestGuessLabels
 
-function SimilarImages({images}) {
+function SimilarImages({images}) { 
   return (
     <section>
       {displayMatchingImages(images)}
       {displayPagesWithMatchingImages(images)}
       {displayPartialMatchingImages(images)}
-      {displayVisuallySimilaryImages(images)}
+      {displayVisuallySimilarImages(images)}
     </section>
   )
 }
