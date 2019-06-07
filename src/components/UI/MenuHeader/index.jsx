@@ -11,12 +11,12 @@ import './style.css';
 
 class MenuHeader extends Component {
 
-  onGetImageLabels = image => this.props.getImageLabels(this.props.image);
-  onGetImageWebLabels = image => this.props.getImageWebLabels(this.props.image);
-  onGetImageObjects = image => this.props.getImageObjects(this.props.image);
-  onGetImageProperties = image => this.props.getImageProperties(this.props.image);
-  onGetImageSafeSearch = image => this.props.getImageSafeSearch(this.props.image);
-  onGetImageText = image => this.props.getImageText(this.props.image);
+  onGetImageLabels = () => this.props.getImageLabels(this.props.image);
+  onGetImageWebLabels = () => this.props.getImageWebLabels(this.props.image);
+  onGetImageObjects = () => this.props.getImageObjects(this.props.image);
+  onGetImageProperties = () => this.props.getImageProperties(this.props.image);
+  onGetImageSafeSearch = () => this.props.getImageSafeSearch(this.props.image);
+  onGetImageText = () => this.props.getImageText(this.props.image);
 
   render() {
     const {

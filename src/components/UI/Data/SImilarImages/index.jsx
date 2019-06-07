@@ -36,17 +36,6 @@ const displayPartialMatchingImages = images => {
   })
 }
 
-// const displayPagesWithMatchingImages = images => {
-//   if (!images) return;
-//   return images.pagesWithMatchingImages.map((image, index) => {
-//     return (
-//       <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
-//          <img className='similar_web_images' alt='matching page image' src={image.url} />
-//       </LazyLoad>
-//     )
-//   })
-// }
-
 const displayVisuallySimilarImages = images => {
   if (!images) return;
   return images.visuallySimilarImages.map((image, index) => {
@@ -68,7 +57,6 @@ function SimilarImages({images}) {
   return (
     <section>
       {displayMatchingImages(images)}
-      {/* {displayPagesWithMatchingImages(images)} */}
       {displayPartialMatchingImages(images)}
       {displayVisuallySimilarImages(images)}
     </section>
