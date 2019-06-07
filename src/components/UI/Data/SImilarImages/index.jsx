@@ -6,15 +6,15 @@ const displayMatchingImages = images => {
   return images.fullMatchingImages.map((image, index) => {
     if (index > 5) {
       return (
-        <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
           <img src='http://apod.nasa.gov/apod/image/1502/HDR_MVMQ20Feb2015ouellet1024.jpg' />
-        </LazyLoad>
+        // <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
+        // </LazyLoad>
       )
     } else {
       return (
-        <LazyLoad debounce={false} throttle={250} key={index}>
            <img className='similar_web_images' alt='similar image' src={image.url} />
-        </LazyLoad>
+        // <LazyLoad debounce={false} throttle={250} key={index}>
+        // </LazyLoad>
       )
     }
   })
@@ -24,9 +24,9 @@ const displayPartialMatchingImages = images => {
   if (!images) return;
   return images.partialMatchingImages.map((image, index) => {
     return (
-      <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
          <img className='similar_web_images' alt='matching image' src={image.url} />
-      </LazyLoad>
+      // <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
+      // </LazyLoad>
     ) 
   })
 }
@@ -35,9 +35,9 @@ const displayPagesWithMatchingImages = images => {
   if (!images) return;
   return images.pagesWithMatchingImages.map((image, index) => {
     return (
-      <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
          <img className='similar_web_images' alt='matching page image' src={image.url} />
-      </LazyLoad>
+      // <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
+      // </LazyLoad>
     )
   })
 }
@@ -46,9 +46,9 @@ const displayVisuallySimilarImages = images => {
   if (!images) return;
   return images.visuallySimilarImages.map((image, index) => {
     return (
-      <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
          <img className='similar_web_images' alt='visually similar image' src={image.url} />
-      </LazyLoad>
+      // <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
+      // </LazyLoad>
     )
   })
 }
