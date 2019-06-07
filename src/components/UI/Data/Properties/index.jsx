@@ -13,7 +13,7 @@ const displayProperties = properties => {
   })
 }
 
-// properties.cropHintsAnnotation.cropHints
+// properties.cropHintsAnnotation.cropHints array
 
 function Properties({properties}) {
   return (
