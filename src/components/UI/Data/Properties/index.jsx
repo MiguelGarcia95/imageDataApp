@@ -2,7 +2,7 @@ import React from 'react';
 
 const displayProperties = properties => {
   if (!properties) return;
-  return properties.imagePropertiesAnnotation.dominantColors.map((properties, index) => {
+  return properties.imagePropertiesAnnotation.dominantColors.colors.map((properties, index) => {
     return (
       <section key={index} className="property_item">
         <p>{properties.color.red}</p>
