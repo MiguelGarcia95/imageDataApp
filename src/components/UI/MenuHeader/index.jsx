@@ -19,7 +19,10 @@ class MenuHeader extends Component {
   onGetImageText = image => this.props.getImageText(this.props.image);
 
   render() {
-    const {preview, image} = this.props;
+    const {
+      preview, image, imageLabelsSuccess, imageWebLabelsSuccess, imageObjectsSuccess, 
+      imageTextSuccess, imagePropertiesSuccess, imageSafeSearchSuccess
+    } = this.props;
 
     return (
       <section className={`buttons ${preview ? 'opened' : '' }`}>
@@ -31,12 +34,12 @@ class MenuHeader extends Component {
             What do you want to do? 
           </section>
           <section className="button_container">
-            <MenuItem title='Web' icon={faSearch} onItemClick={() => this.onGetImageWebLabels(image)} />
-            <MenuItem title='Label' icon={faTags} onItemClick={() => this.onGetImageLabels(image)}  />
-            <MenuItem title='Objects' icon={faObjectUngroup} onItemClick={() => this.onGetImageObjects(image)}  />
-            <MenuItem title='Properties' icon={faCogs} onItemClick={() => this.onGetImageProperties(image)}  />
-            <MenuItem title='Safe Search' icon={faChild} onItemClick={() => this.onGetImageSafeSearch(image)}  />
-            <MenuItem title='Text' icon={faFont} onItemClick={() => this.onGetImageText(image)}  />
+            <MenuItem title='Web' icon={faSearch} onItemClick={() => this.onGetImageWebLabels(image)} disabled={imageWebLabelsSuccess} />
+            <MenuItem title='Label' icon={faTags} onItemClick={() => this.onGetImageLabels(image)} disabled={imageLabelsSuccess} />
+            <MenuItem title='Objects' icon={faObjectUngroup} onItemClick={() => this.onGetImageObjects(image)} disabled={imageObjectsSuccess} />
+            <MenuItem title='Properties' icon={faCogs} onItemClick={() => this.onGetImageProperties(image)} disabled={imagePropertiesSuccess} />
+            <MenuItem title='Safe Search' icon={faChild} onItemClick={() => this.onGetImageSafeSearch(image)} disabled={imageSafeSearchSuccess} />
+            <MenuItem title='Text' icon={faFont} onItemClick={() => this.onGetImageText(image)} disabled={imageTextSuccess} />
           </section>
         </React.Fragment>
       </section>
