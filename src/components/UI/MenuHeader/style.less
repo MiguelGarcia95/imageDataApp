@@ -34,6 +34,14 @@
       position: relative;
       text-align: center;
       cursor: pointer;
+      &.disabled {
+        background-color: rgb(68, 66, 66);
+        cursor: not-allowed;
+
+        .icon, p {
+          color: rgb(126, 132, 141);
+        }
+      }
       .icon, p {
         float: left;
         position: absolute;
