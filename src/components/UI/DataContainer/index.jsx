@@ -14,7 +14,7 @@ class DataContainer extends Component {
   render() {
     return (
       <section className='data_container' >
-        <WebLabels labels={this.props.imageWebLabels} />
+        {/* <WebLabels labels={this.props.imageWebLabels} />
         <SimilarImages images={this.props.imageWebLabels} />
 
         <Labels labels={this.props.imageLabels} />
@@ -25,9 +25,9 @@ class DataContainer extends Component {
 
         <Properties properties={this.props.imageProperties} />
 
-        <SafeSearch safeSearch={this.props.imageSafeSearch} />
+        <SafeSearch safeSearch={this.props.imageSafeSearch} /> */}
 
-
+        
       </section>
     )
   }
