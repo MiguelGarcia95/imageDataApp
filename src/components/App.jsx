@@ -111,7 +111,9 @@ class App extends Component {
 
         {/* <DataContainer  /> */}
         <section ref={el => this.dataContainer = el}  ></section>
-        <DataContainer />
+        <DataContainer
+          preview={preview}         
+        />
 
       </section>
     );

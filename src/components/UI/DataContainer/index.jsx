@@ -14,6 +14,14 @@ class DataContainer extends Component {
   render() {
     return (
       <section className='data_container' >
+        <section className="preview_container">
+          <section className="preview_grid"></section>
+          <section className="preview_image">
+            <img src={this.props.preview} />
+          </section>
+        </section>
+
+
         {/* <WebLabels labels={this.props.imageWebLabels} />
         <SimilarImages images={this.props.imageWebLabels} />
 
@@ -27,7 +35,7 @@ class DataContainer extends Component {
 
         <SafeSearch safeSearch={this.props.imageSafeSearch} /> */}
 
-        
+
       </section>
     )
   }
