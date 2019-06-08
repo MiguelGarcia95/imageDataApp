@@ -1,1 +1,1 @@
-.data_container{width:100vw;max-width:100%;display:block;position:absolute;top:100vh}
+.data_container{width:100vw;max-width:100%;display:block;position:absolute;top:100vh}.data_container .preview_container{width:400px;height:400px}.data_container .preview_container .preview_image{width:100%;height:100%}.data_container .preview_container .preview_image img{object-fit:contain}

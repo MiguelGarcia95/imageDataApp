@@ -20,7 +20,7 @@ const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage, resetImage
                 </section>
               </section>
               <section className="image" onClick={toggleOnImage} >
-                <img src={preview} alt='User Image' />
+                <img id='preview_image' src={preview} alt='User Image' />
               </section>
             </React.Fragment>
           )}

@@ -16,6 +16,7 @@ class App extends Component {
       base64: null,
       preview: null,
       type: null,
+      width: null
     },
     fullscreen: false
   }
@@ -89,6 +90,7 @@ class App extends Component {
   render() {
     const {preview} = this.state.image;
     const {isLoading, error} = this.props;
+    const dataHasBeenFetched = this.hasDataBeenFetched();
     return (
       <section className="app">
 
@@ -112,7 +114,8 @@ class App extends Component {
         {/* <DataContainer  /> */}
         <section ref={el => this.dataContainer = el}  ></section>
         <DataContainer
-          preview={preview}         
+          preview={preview}   
+          dataHasBeenFetched={dataHasBeenFetched}      
         />
 
       </section>

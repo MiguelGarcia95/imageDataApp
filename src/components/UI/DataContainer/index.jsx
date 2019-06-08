@@ -11,13 +11,36 @@ import SafeSearch from '../Data/SafeSearch';
 import './style.css';
 
 class DataContainer extends Component {
+  componentDidUpdate() {
+    if (this.props.dataHasBeenFetched) {
+      let image = document.querySelector('#preview_image');
+      // using this data, resize the image in preview_image_resized to fit the 
+      // 400 height and 400 width container
+      // if width bigger than height, then width === 400, and height is proportional to it
+      // console.log('height', image.naturalHeight);
+      // console.log('width', image.naturalWidth);
+      this.resizePreviewImage(image.naturalWidth, image.naturalHeight)
+    }
+  }
+
+  resizePreviewImage = (width, height) => {
+    let newWidth, newHeight;
+    if (width > height) {
+      newWidth = '400px';
+      newHeight = 400*height/width;
+    } else {
+      newHeight = '400px';
+      newWidth = 400*width/height;
+    }
+    console.log(`image dimensions: width: ${newWidth}, height: ${newHeight}`);
+  }
   render() {
     return (
       <section className='data_container' >
         <section className="preview_container">
           <section className="preview_grid"></section>
           <section className="preview_image">
-            <img src={this.props.preview} />
+            <img className="preview_image_resized" src={this.props.preview} />
           </section>
         </section>
 
