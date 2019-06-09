@@ -39,37 +39,85 @@ class DataContainer extends Component {
     }
   }
 
+  setMargin = view => {
+    const {imageWebLabels, imageLabels, imageSafeSearch, imageProperties, imageObjects, imageText } = this.props;
+    switch (view) {
+      case 'imageText':
+        if (imageText && !imageWebLabels && !imageLabels && !imageSafeSearch && !imageProperties && !imageObjects) {
+          return 'marginLeft';
+        } else {
+          return '';
+        }
+      case 'imageObjects':
+        if (imageObjects && !imageWebLabels && !imageLabels && !imageSafeSearch && !imageProperties && !imageText) {
+          return 'marginLeft';
+        } else {
+          return '';
+        }
+      case 'imageProperties':
+        if (imageProperties && !imageWebLabels && !imageLabels && !imageSafeSearch && !imageObjects && !imageText) {
+          return 'marginLeft';
+        } else {
+          return '';
+        }
+      case 'imageSafeSearch':
+        if (imageSafeSearch && !imageWebLabels && !imageLabels && !imageProperties && !imageObjects && !imageText) {
+          return 'marginLeft';
+        } else {
+          return '';
+        }
+      case 'imageLabels':
+        if (imageLabels && !imageWebLabels && !imageSafeSearch && !imageProperties && !imageObjects && !imageText) {
+          return 'marginLeft';
+        } else {
+          return '';
+        }
+      case 'imageWebLabels':
+        if (imageWebLabels && !imageLabels && !imageSafeSearch && !imageProperties && !imageObjects && !imageText) {
+          return 'marginLeft';
+        } else {
+          return '';
+        }
+      default:
+        break;
+    }
+  }
+
 
   render() {
+    const {
+      preview, dataHasBeenFetched, imageWebLabels, imageLabels, imageSafeSearch, imageProperties, imageObjects, imageText
+    } = this.props;
     return (
       <section className='data_container' >
-        {this.props.dataHasBeenFetched && (
+        {dataHasBeenFetched && (
           <React.Fragment>
             <section className="preview_container">
               <section className="preview_grid"></section>
               <section className="preview_image">
-                <img className="preview_image_resized" src={this.props.preview} />
+                <img className="preview_image_resized" src={preview} />
               </section>
             </section>
-            <section className="labels">
-              <WebLabels labels={this.props.imageWebLabels} />
-              {/* 
-              <Labels labels={this.props.imageLabels} /> */}
+            <section className={`web-labels`}>
+              <WebLabels labels={imageWebLabels} />
             </section>
-            <section className="safe_search">
-              {/* <SafeSearch safeSearch={this.props.imageSafeSearch} /> */}
+            <section className={`labels `}>
+              <Labels labels={imageLabels} /> 
             </section>
-            <section className="properties">
-              {/* <Properties properties={this.props.imageProperties} /> */}
+            <section className={`safe_search`}>
+              <SafeSearch safeSearch={imageSafeSearch} />
             </section>
-            <section className="objects">
-              {/* <Objects objects={this.props.imageObjects} /> */}
+            <section className={`properties`}>
+              <Properties properties={imageProperties} />
             </section>
-            <section className="text">
-              {/* <Text text={this.props.imageText} /> */}
+            <section className={`objects`}>
+              <Objects objects={imageObjects} />
             </section>
-            <section className="images">
-              {/* <SimilarImages images={this.props.imageWebLabels} /> */}
+            <section className={`text`}>
+              <Text text={imageText} />
+            </section>
+            <section className={`images`}>
+              <SimilarImages images={imageWebLabels} />
             </section>
           </React.Fragment>
         )}
