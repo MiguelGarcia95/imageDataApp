@@ -85,7 +85,10 @@ class App extends Component {
     return false;
   }
 
-  scrollDown = () => this.dataContainer.scrollIntoView({behavior: 'smooth'});
+  scrollDown = () => {
+    // window.scrollTo(0, this.dataContainer.offsetTop)
+    this.dataContainer.scrollIntoView({behavior: 'smooth'});
+  }
 
   render() {
     const {preview} = this.state.image;
@@ -98,6 +101,7 @@ class App extends Component {
         {error && <Error error={error} onErrorClick={this.props.clearError} />}
 
         <section className={`title ${preview ? 'closed' : ''}`}>
+        {/* <section className={`title`} onClick={this.scrollDown} > */}
           <h1>Upload Image to Analyze.</h1> 
         </section>
 
@@ -112,7 +116,7 @@ class App extends Component {
         />
 
         {/* <DataContainer  /> */}
-        <section ref={el => this.dataContainer = el}  ></section>
+        <section className='data-container-ref' ref={el => this.dataContainer = el}  ></section>
         <DataContainer
           preview={preview}   
           dataHasBeenFetched={dataHasBeenFetched}      

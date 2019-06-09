@@ -26,19 +26,13 @@ class DataContainer extends Component {
   resizePreviewImage = (width, height) => {
     let image = document.querySelector('.preview_image_resized');
     let imageGrid = document.querySelector('.preview_grid');
+    const maxHeight = 400;
     if (width > height) {
       this.updateDomStyle(image, '400px', `${400*height/width}px`);
       this.updateDomStyle(imageGrid, '400px', `${400*height/width}px`);
     } else {
       this.updateDomStyle(image, `${400*width/height}px`, '400px', `${200 - ((400*width/height)/2)}px`);
       this.updateDomStyle(imageGrid, `${400*width/height}px`, '400px', `${200 - ((400*width/height)/2)}px`);
-      // image.style.height = '400px';
-      // this.updateDomStyle(image, 'height', '400px')
-      // image.style.width = `${400*width/height}px`;
-      // imageGrid.style.height = '400px';
-      // imageGrid.style.width = `${400*width/height}px`;
-      // image.style.marginLeft = `${200 - ((400*width/height)/2)}px`;
-      // imageGrid.style.marginLeft = `${200 - ((400*width/height)/2)}px`;
     }
   }
 
@@ -54,12 +48,14 @@ class DataContainer extends Component {
   render() {
     return (
       <section className='data_container' >
-        <section className="preview_container">
-          <section className="preview_grid"></section>
-          <section className="preview_image">
-            <img className="preview_image_resized" src={this.props.preview} />
+        {this.props.dataHasBeenFetched && (
+          <section className="preview_container">
+            <section className="preview_grid"></section>
+            <section className="preview_image">
+              <img className="preview_image_resized" src={this.props.preview} />
+            </section>
           </section>
-        </section>
+        )}
 
 
         {/* <WebLabels labels={this.props.imageWebLabels} />
