@@ -49,31 +49,31 @@ class DataContainer extends Component {
           return '';
         }
       case 'imageObjects':
-        if (imageObjects && !imageWebLabels && !imageLabels && !imageSafeSearch && !imageProperties && !imageText) {
+        if (imageObjects && !imageWebLabels && !imageLabels && !imageSafeSearch && !imageProperties) {
           return 'marginLeft';
         } else {
           return '';
         }
       case 'imageProperties':
-        if (imageProperties && !imageWebLabels && !imageLabels && !imageSafeSearch && !imageObjects && !imageText) {
+        if (imageProperties && !imageWebLabels && !imageLabels && !imageSafeSearch) {
           return 'marginLeft';
         } else {
           return '';
         }
       case 'imageSafeSearch':
-        if (imageSafeSearch && !imageWebLabels && !imageLabels && !imageProperties && !imageObjects && !imageText) {
+        if (imageSafeSearch && !imageWebLabels && !imageLabels) {
           return 'marginLeft';
         } else {
           return '';
         }
       case 'imageLabels':
-        if (imageLabels && !imageWebLabels && !imageSafeSearch && !imageProperties && !imageObjects && !imageText) {
+        if (imageLabels && !imageWebLabels) {
           return 'marginLeft';
         } else {
           return '';
         }
       case 'imageWebLabels':
-        if (imageWebLabels && !imageLabels && !imageSafeSearch && !imageProperties && !imageObjects && !imageText) {
+        if (imageWebLabels) {
           return 'marginLeft';
         } else {
           return '';
