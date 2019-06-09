@@ -98,26 +98,28 @@ class DataContainer extends Component {
                 <img className="preview_image_resized" src={preview} />
               </section>
             </section>
-            <section className={`web-labels ${this.setMargin('imageWebLabels')}`}>
-              <WebLabels labels={imageWebLabels} />
-            </section>
-            <section className={`labels ${this.setMargin('imageLabels')}`}>
-              <Labels labels={imageLabels} /> 
-            </section>
-            <section className={`safe_search ${this.setMargin('imageSafeSearch')}`}>
-              <SafeSearch safeSearch={imageSafeSearch} />
-            </section>
-            <section className={`properties ${this.setMargin('imageProperties')}`}>
-              <Properties properties={imageProperties} />
-            </section>
-            <section className={`objects ${this.setMargin('imageObjects')}`}>
-              <Objects objects={imageObjects} />
-            </section>
-            <section className={`text ${this.setMargin('imageText')}`}>
-              <Text text={imageText} />
-            </section>
-            <section className={`images`}>
-              <SimilarImages images={imageWebLabels} />
+            <section className="data">
+              <section className={`web-labels ${this.setMargin('imageWebLabels')}`}>
+                <WebLabels labels={imageWebLabels} />
+              </section>
+              <section className={`labels ${this.setMargin('imageLabels')}`}>
+                <Labels labels={imageLabels} /> 
+              </section>
+              <section className={`safe_search ${this.setMargin('imageSafeSearch')}`}>
+                <SafeSearch safeSearch={imageSafeSearch} />
+              </section>
+              <section className={`properties ${this.setMargin('imageProperties')}`}>
+                <Properties properties={imageProperties} />
+              </section>
+              <section className={`objects ${this.setMargin('imageObjects')}`}>
+                <Objects objects={imageObjects} />
+              </section>
+              <section className={`text ${this.setMargin('imageText')}`}>
+                <Text text={imageText} />
+              </section>
+              <section className={`images`}>
+                <SimilarImages images={imageWebLabels} />
+              </section>
             </section>
           </React.Fragment>
         )}
