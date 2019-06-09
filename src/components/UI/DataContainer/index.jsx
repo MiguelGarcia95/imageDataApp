@@ -30,14 +30,24 @@ class DataContainer extends Component {
       this.updateDomStyle(image, '400px', `${400*height/width}px`);
       this.updateDomStyle(imageGrid, '400px', `${400*height/width}px`);
     } else {
-      this.updateDomStyle(image, `${400*width/height}px`, '400px');
-      this.updateDomStyle(imageGrid, `${400*width/height}px`, '400px');
+      this.updateDomStyle(image, `${400*width/height}px`, '400px', `${200 - ((400*width/height)/2)}px`);
+      this.updateDomStyle(imageGrid, `${400*width/height}px`, '400px', `${200 - ((400*width/height)/2)}px`);
+      // image.style.height = '400px';
+      // this.updateDomStyle(image, 'height', '400px')
+      // image.style.width = `${400*width/height}px`;
+      // imageGrid.style.height = '400px';
+      // imageGrid.style.width = `${400*width/height}px`;
+      // image.style.marginLeft = `${200 - ((400*width/height)/2)}px`;
+      // imageGrid.style.marginLeft = `${200 - ((400*width/height)/2)}px`;
     }
   }
 
-  updateDomStyle = (item, width, height) => {
+  updateDomStyle = (item, width, height, margin) => {
     item.style.width = width;
     item.style.height = height;
+    if (margin) {
+      item.style.marginLeft = margin;
+    }
   }
 
 
