@@ -98,22 +98,22 @@ class DataContainer extends Component {
                 <img className="preview_image_resized" src={preview} />
               </section>
             </section>
-            <section className={`web-labels`}>
+            <section className={`web-labels ${this.setMargin('imageWebLabels')}`}>
               <WebLabels labels={imageWebLabels} />
             </section>
-            <section className={`labels `}>
+            <section className={`labels ${this.setMargin('imageLabels')}`}>
               <Labels labels={imageLabels} /> 
             </section>
-            <section className={`safe_search`}>
+            <section className={`safe_search ${this.setMargin('imageSafeSearch')}`}>
               <SafeSearch safeSearch={imageSafeSearch} />
             </section>
-            <section className={`properties`}>
+            <section className={`properties ${this.setMargin('imageProperties')}`}>
               <Properties properties={imageProperties} />
             </section>
-            <section className={`objects`}>
+            <section className={`objects ${this.setMargin('imageObjects')}`}>
               <Objects objects={imageObjects} />
             </section>
-            <section className={`text`}>
+            <section className={`text ${this.setMargin('imageText')}`}>
               <Text text={imageText} />
             </section>
             <section className={`images`}>
