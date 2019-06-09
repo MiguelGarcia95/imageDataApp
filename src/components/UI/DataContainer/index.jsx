@@ -55,26 +55,23 @@ class DataContainer extends Component {
               {/* <WebLabels labels={this.props.imageWebLabels} />
               <Labels labels={this.props.imageLabels} /> */}
             </section>
+            <section className="safe_search">
+              {/* <SafeSearch safeSearch={this.props.imageSafeSearch} /> */}
+            </section>
+            <section className="properties">
+              {/* <Properties properties={this.props.imageProperties} /> */}
+            </section>
+            <section className="objects">
+              {/* <Objects objects={this.props.imageObjects} /> */}
+            </section>
+            <section className="text">
+              {/* <Text text={this.props.imageText} /> */}
+            </section>
             <section className="images">
               {/* <SimilarImages images={this.props.imageWebLabels} /> */}
             </section>
           </React.Fragment>
         )}
-
-
-        {/* 
-        <WebLabels labels={this.props.imageWebLabels} />
-        <Labels labels={this.props.imageLabels} />
-
-        <Objects objects={this.props.imageObjects} />
-
-        <Text text={this.props.imageText} />
-
-        <Properties properties={this.props.imageProperties} />
-
-        <SafeSearch safeSearch={this.props.imageSafeSearch} /> */}
-
-
       </section>
     )
   }
