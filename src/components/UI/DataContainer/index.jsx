@@ -14,11 +14,6 @@ class DataContainer extends Component {
   componentDidUpdate() {
     if (this.props.dataHasBeenFetched) {
       let image = document.querySelector('#preview_image');
-      // using this data, resize the image in preview_image_resized to fit the 
-      // 400 height and 400 width container
-      // if width bigger than height, then width === 400, and height is proportional to it
-      // console.log('height', image.naturalHeight);
-      // console.log('width', image.naturalWidth);
       this.resizePreviewImage(image.naturalWidth, image.naturalHeight)
     }
   }
@@ -49,18 +44,26 @@ class DataContainer extends Component {
     return (
       <section className='data_container' >
         {this.props.dataHasBeenFetched && (
-          <section className="preview_container">
-            <section className="preview_grid"></section>
-            <section className="preview_image">
-              <img className="preview_image_resized" src={this.props.preview} />
+          <React.Fragment>
+            <section className="preview_container">
+              <section className="preview_grid"></section>
+              <section className="preview_image">
+                <img className="preview_image_resized" src={this.props.preview} />
+              </section>
             </section>
-          </section>
+            <section className="labels">
+              {/* <WebLabels labels={this.props.imageWebLabels} />
+              <Labels labels={this.props.imageLabels} /> */}
+            </section>
+            <section className="images">
+              {/* <SimilarImages images={this.props.imageWebLabels} /> */}
+            </section>
+          </React.Fragment>
         )}
 
 
-        {/* <WebLabels labels={this.props.imageWebLabels} />
-        <SimilarImages images={this.props.imageWebLabels} />
-
+        {/* 
+        <WebLabels labels={this.props.imageWebLabels} />
         <Labels labels={this.props.imageLabels} />
 
         <Objects objects={this.props.imageObjects} />
