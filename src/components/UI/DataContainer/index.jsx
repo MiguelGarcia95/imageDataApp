@@ -52,7 +52,8 @@ class DataContainer extends Component {
               </section>
             </section>
             <section className="labels">
-              {/* <WebLabels labels={this.props.imageWebLabels} />
+              <WebLabels labels={this.props.imageWebLabels} />
+              {/* 
               <Labels labels={this.props.imageLabels} /> */}
             </section>
             <section className="safe_search">
