@@ -25,13 +25,19 @@ class DataContainer extends Component {
 
   resizePreviewImage = (width, height) => {
     let image = document.querySelector('.preview_image_resized');
+    let imageGrid = document.querySelector('.preview_grid');
     if (width > height) {
       image.style.width = '400px';
-      image.style.height = 400*height/width;
+      image.style.height = `${400*height/width}px`;
+      imageGrid.style.width = '400px';
+      imageGrid.style.height = `${400*height/width}px`;
     } else {
       image.style.height = '400px';
-      image.style.width = 400*width/height;
-      image.style.marginLeft = 400 - (400*width/height)/2;
+      image.style.width = `${400*width/height}px`;
+      image.style.marginLeft = `${200 - ((400*width/height)/2)}px`;
+      imageGrid.style.height = '400px';
+      imageGrid.style.width = `${400*width/height}px`;
+      imageGrid.style.marginLeft = `${200 - ((400*width/height)/2)}px`;
     }
   }
   render() {
