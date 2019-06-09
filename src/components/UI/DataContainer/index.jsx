@@ -24,15 +24,20 @@ class DataContainer extends Component {
   }
 
   resizePreviewImage = (width, height) => {
-    let newWidth, newHeight;
+    let image = document.querySelector('.preview_image_resized');
+    // let newWidth, newHeight;
     if (width > height) {
-      newWidth = '400px';
-      newHeight = 400*height/width;
+      // newWidth = '400px';
+      // newHeight = 400*height/width;
+      image.style.width = '400px';
+      image.style.height = 400*height/width;
     } else {
-      newHeight = '400px';
-      newWidth = 400*width/height;
+      // newHeight = '400px';
+      // newWidth = 400*width/height;
+      image.style.height = '400px';
+      image.style.width = 400*width/height;
     }
-    console.log(`image dimensions: width: ${newWidth}, height: ${newHeight}`);
+    // console.log(`image dimensions: width: ${newWidth}, height: ${newHeight}`);
   }
   render() {
     return (
