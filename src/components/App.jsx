@@ -113,6 +113,7 @@ class App extends Component {
           toggleOnImage={this.toggleOnImage}
           toggleOffImage={this.toggleOffImage}
           resetImage={this.resetImage}
+          dataHasBeenFetched={dataHasBeenFetched}      
         />
 
         {/* <DataContainer  /> */}

@@ -3,10 +3,10 @@ import { faTimes, faRedoAlt } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './style.css';
 
-const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage, resetImage}) => {
+const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage, resetImage, dataHasBeenFetched}) => {
   return (
     <React.Fragment>
-      <section className={`image_preview ${preview ? 'opened' : ''}`}>
+      <section className={`image_preview ${preview && !dataHasBeenFetched ? 'opened' : ''}`}>
           {preview && (
             <React.Fragment >
               <section className="reset_container">
