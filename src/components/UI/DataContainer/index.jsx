@@ -21,13 +21,17 @@ class DataContainer extends Component {
   resizePreviewImage = (width, height) => {
     let image = document.querySelector('.preview_image_resized');
     let imageGrid = document.querySelector('.preview_grid');
-    const maxHeight = 400;
+    let previewContainer = document.querySelector('.preview_container');
+    let maxWH = previewContainer.clientHeight;
+    let halfWH = maxWH/2;
+    // console.log(previewContainer.clientHeight);
+    // const maxHeight = 400;
     if (width > height) {
-      this.updateDomStyle(image, '400px', `${400*height/width}px`);
-      this.updateDomStyle(imageGrid, '400px', `${400*height/width}px`);
+      this.updateDomStyle(image, `${maxWH}px`, `${maxWH*height/width}px`);
+      this.updateDomStyle(imageGrid, `${maxWH}px`, `${maxWH*height/width}px`);
     } else {
-      this.updateDomStyle(image, `${400*width/height}px`, '400px', `${200 - ((400*width/height)/2)}px`);
-      this.updateDomStyle(imageGrid, `${400*width/height}px`, '400px', `${200 - ((400*width/height)/2)}px`);
+      this.updateDomStyle(image, `${maxWH*width/height}px`, `${maxWH}px`, `${halfWH - ((maxWH*width/height)/2)}px`);
+      this.updateDomStyle(imageGrid, `${maxWH*width/height}px`, `${maxWH}px`, `${halfWH - ((maxWH*width/height)/2)}px`);
     }
   }
 
