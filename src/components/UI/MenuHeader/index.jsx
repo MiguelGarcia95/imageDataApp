@@ -26,9 +26,6 @@ class MenuHeader extends Component {
 
     return (
       <section className={`buttons ${preview ? 'opened' : '' }`}>
-        {/* {preview && (
-
-        ) } */}
         <React.Fragment>
           <section className='sub-title'>
             Pick One. 

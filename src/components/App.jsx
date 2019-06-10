@@ -21,12 +21,6 @@ class App extends Component {
     fullscreen: false
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.isLoading !== this.props.isLoading && this.hasDataBeenFetched()) {
-      this.scrollDown();
-    }
-  }
-
   getFileType = fileName => {
     return fileName.substring(fileName.lastIndexOf('.')+1, fileName.length) || fileName
   }
@@ -85,11 +79,6 @@ class App extends Component {
     return false;
   }
 
-  scrollDown = () => {
-    // window.scrollTo(0, this.dataContainer.offsetTop)
-    this.dataContainer.scrollIntoView({behavior: 'smooth'});
-  }
-
   render() {
     const {preview} = this.state.image;
     const {isLoading, error} = this.props;
@@ -101,7 +90,6 @@ class App extends Component {
         {error && <Error error={error} onErrorClick={this.props.clearError} />}
 
         <section className={`title ${preview ? 'closed' : ''}`}>
-        {/* <section className={`title`} onClick={this.scrollDown} > */}
           <h1>Upload Image to Analyze.</h1> 
         </section>
 
@@ -116,8 +104,6 @@ class App extends Component {
           dataHasBeenFetched={dataHasBeenFetched}      
         />
 
-        {/* <DataContainer  /> */}
-        <section className='data-container-ref' ref={el => this.dataContainer = el}  ></section>
         <DataContainer
           preview={preview}   
           dataHasBeenFetched={dataHasBeenFetched}      
