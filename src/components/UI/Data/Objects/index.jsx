@@ -3,8 +3,12 @@ import React from 'react';
 const displasyObjects = objects => {
   if (!objects) return;
   return objects.map((object, index) => {
+    setTimeout(() => {
+      verticies(object.boundingPoly.normalizedVertices, object.name)
+    }, 2000);
+    // <section onClick={() => verticies(object.boundingPoly.normalizedVertices, object.name)} key={index} className="object">
     return (
-      <section onClick={() => verticies(object.boundingPoly.normalizedVertices, object.name)} key={index} className="object">
+      <section key={index} className="object">
         <p>{object.name}</p>
       </section>
     )
