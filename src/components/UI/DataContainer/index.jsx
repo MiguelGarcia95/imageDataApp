@@ -117,7 +117,7 @@ class DataContainer extends Component {
               <section className={`text ${this.setMargin('imageText')}`}>
                 <Text text={imageText} />
               </section>
-              <section className={`images`}>
+              <section className='images'>
                 <SimilarImages images={imageWebLabels} />
               </section>
             </section>

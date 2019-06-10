@@ -55,7 +55,7 @@ const displayVisuallySimilarImages = images => {
 
 function SimilarImages({images}) { 
   return (
-    <section>
+    <section className="images_container">
       {displayMatchingImages(images)}
       {displayPartialMatchingImages(images)}
       {displayVisuallySimilarImages(images)}
