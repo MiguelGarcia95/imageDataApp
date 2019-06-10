@@ -16,15 +16,20 @@ const verticies = (points, name) => {
   // [0].x - [1].x = width 
   // [1].y - [2].y = height 
   // show this on .preview_grid 
-  let width = points[0].x - points[1].x;
-  let height = points[1].y - points[2].y;
+  let gridBox = document.querySelector('.preview_grid');
+  let width = Math.abs(points[0].x - points[1].x);
+  let height = Math.abs(points[1].y - points[2].y);
   let origin = points[0];
   console.log('width', width);
   console.log('height', height);
   console.log('origin', origin);
-  // console.log(object.normalizedVertices);
-  // console.log(object);
-  console.log(name)
+  // console.log(name)
+  // console.log(gridBox);
+  var grid = document.createElement('section');
+  grid.style.backgroundColor = 'red';
+  grid.style.width = '20px';
+  grid.style.height = '20px';
+  gridBox.appendChild(grid);
 }
 
 // boundingPoly.narmalizedVerticies - array
