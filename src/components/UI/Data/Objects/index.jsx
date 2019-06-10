@@ -13,8 +13,6 @@ const displasyObjects = objects => {
 
 const verticies = (points, name) => {
   let gridBox = document.querySelector('.preview_grid');
-  console.log(gridBox.clientHeight);
-  console.log(gridBox.clientWidth);
   let width = Math.abs(points[0].x - points[1].x);
   let height = Math.abs(points[1].y - points[2].y);
   let origin = points[0];
