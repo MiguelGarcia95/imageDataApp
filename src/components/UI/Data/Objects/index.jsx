@@ -24,18 +24,22 @@ const verticies = (points, name) => {
   let origin = points[0];
   // console.log('width', width);
   // console.log('height', height);
-  // console.log('origin', origin);
-  // GridBoxwidth/x = 1/width, x = GridBoxwidth/width 
-  // GridBoxheight/x = 1/height, x = GridBoxheight/height 
-  let propHeight = gridBox.clientHeight/height;
-  let propWidth = gridBox.clientWidth/width;
+  // console.log('origin', origin); 
+  // x = gridWidth * origin.x
+  let xOrigin = gridBox.clientWidth*origin.x;
+  let yOrigin = gridBox.clientHeight*origin.y;
+  let propHeight = gridBox.clientHeight*height;
+  let propWidth = gridBox.clientWidth*width;
   console.log('propHeight', propHeight);
   console.log('propWidth', propWidth);
   var grid = document.createElement('section');
   grid.style.backgroundColor = 'transparent';
   grid.style.border = '1px solid red';
-  grid.style.width = '20px';
-  grid.style.height = '20px';
+  grid.style.position = 'absolute';
+  grid.style.top = `${yOrigin}px`;
+  grid.style.left = `${xOrigin}px`;
+  grid.style.width = `${propWidth}px`;
+  grid.style.height = `${propHeight}px`;
   gridBox.appendChild(grid);
 }
 
