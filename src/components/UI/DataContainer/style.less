@@ -9,6 +9,12 @@
   position: relative;
   position: fixed;
   // padding-top: 100px;
+  transform: scale(1);
+  transition: 0.5s;
+  &.closed {
+    transform: scale(0);
+    // height: 0px;
+  }
   .preview_container {
     width: 400px;
     height: 400px;

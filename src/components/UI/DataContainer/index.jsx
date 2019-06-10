@@ -89,7 +89,7 @@ class DataContainer extends Component {
       preview, dataHasBeenFetched, imageWebLabels, imageLabels, imageSafeSearch, imageProperties, imageObjects, imageText
     } = this.props;
     return (
-      <section className='data_container' >
+      <section className={`data_container ${dataHasBeenFetched ? '' : 'closed'}`} >
         {dataHasBeenFetched && (
           <React.Fragment>
             <section className="preview_container">
