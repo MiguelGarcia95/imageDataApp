@@ -31,7 +31,7 @@ class MenuHeader extends Component {
         ) } */}
         <React.Fragment>
           <section className='sub-title'>
-            What do you want to do? 
+            Pick One. 
           </section>
           <section className="button_container">
             <MenuItem title='Web' icon={faSearch} onItemClick={() => this.onGetImageWebLabels(image)} disabled={imageWebLabelsSuccess} />
