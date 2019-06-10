@@ -1,5 +1,6 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
+import './style.css';
 
 const imageError = image => {
   console.log(image);
