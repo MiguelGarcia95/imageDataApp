@@ -24,8 +24,6 @@ class DataContainer extends Component {
     let previewContainer = document.querySelector('.preview_container');
     let maxWH = previewContainer.clientHeight;
     let halfWH = maxWH/2;
-    // console.log(previewContainer.clientHeight);
-    // const maxHeight = 400;
     if (width > height) {
       this.updateDomStyle(image, `${maxWH}px`, `${maxWH*height/width}px`);
       this.updateDomStyle(imageGrid, `${maxWH}px`, `${maxWH*height/width}px`);
@@ -43,51 +41,6 @@ class DataContainer extends Component {
     }
   }
 
-  setMargin = view => {
-    const {imageWebLabels, imageLabels, imageSafeSearch, imageProperties, imageObjects, imageText } = this.props;
-    switch (view) {
-      case 'imageText':
-        if (imageText && !imageWebLabels && !imageLabels && !imageSafeSearch && !imageProperties && !imageObjects) {
-          return 'marginLeft';
-        } else {
-          return '';
-        }
-      case 'imageObjects':
-        if (imageObjects && !imageWebLabels && !imageLabels && !imageSafeSearch && !imageProperties) {
-          return 'marginLeft';
-        } else {
-          return '';
-        }
-      case 'imageProperties':
-        if (imageProperties && !imageWebLabels && !imageLabels && !imageSafeSearch) {
-          return 'marginLeft';
-        } else {
-          return '';
-        }
-      case 'imageSafeSearch':
-        if (imageSafeSearch && !imageWebLabels && !imageLabels) {
-          return 'marginLeft';
-        } else {
-          return '';
-        }
-      case 'imageLabels':
-        if (imageLabels && !imageWebLabels) {
-          return 'marginLeft';
-        } else {
-          return '';
-        }
-      case 'imageWebLabels':
-        if (imageWebLabels) {
-          return 'marginLeft';
-        } else {
-          return '';
-        }
-      default:
-        break;
-    }
-  }
-
-
   render() {
     const {
       preview, dataHasBeenFetched, imageWebLabels, imageLabels, imageSafeSearch, imageProperties, imageObjects, imageText
@@ -103,22 +56,22 @@ class DataContainer extends Component {
               </section>
             </section>
             <section className="data">
-              <section className={`web-labels ${this.setMargin('imageWebLabels')}`}>
+              <section className='web-labels'>
                 <WebLabels labels={imageWebLabels} />
               </section>
-              <section className={`labels ${this.setMargin('imageLabels')}`}>
+              <section className='labels'>
                 <Labels labels={imageLabels} /> 
               </section>
-              <section className={`safe_search ${this.setMargin('imageSafeSearch')}`}>
+              <section className='safe_search'>
                 <SafeSearch safeSearch={imageSafeSearch} />
               </section>
-              <section className={`properties ${this.setMargin('imageProperties')}`}>
+              <section className='properties'>
                 <Properties properties={imageProperties} />
               </section>
-              <section className={`objects ${this.setMargin('imageObjects')}`}>
+              <section className='objects'>
                 <Objects objects={imageObjects} />
               </section>
-              <section className={`text ${this.setMargin('imageText')}`}>
+              <section className='text'>
                 <Text text={imageText} />
               </section>
               <section className='images'>
