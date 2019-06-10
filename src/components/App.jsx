@@ -105,7 +105,7 @@ class App extends Component {
           <h1>Upload Image to Analyze.</h1> 
         </section>
 
-        <MenuHeader preview={preview} image={this.state.image} />
+        <MenuHeader preview={preview} image={this.state.image} resetImage={this.resetImage} />
         <DropZone onImageDrop={this.onImageDrop} preview={preview} />
         <Preview 
           preview={preview} 

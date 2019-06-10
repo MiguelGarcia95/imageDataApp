@@ -1,28 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes, faRedoAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
 import './style.css';
 
-const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage, resetImage, dataHasBeenFetched}) => {
+const Preview = ({preview, fullscreen, toggleOnImage, toggleOffImage, dataHasBeenFetched}) => {
   return (
     <React.Fragment>
       <section className={`image_preview ${preview && !dataHasBeenFetched ? 'opened' : ''}`}>
           {preview && (
-            <React.Fragment >
-              <section className="reset_container">
-                <section className="reset_image">
-                  <FontAwesomeIcon 
-                    className='reset_icon' 
-                    size='2x' color='white' 
-                    icon={faRedoAlt}  
-                    onClick={resetImage}
-                  />
-                </section>
-              </section>
-              <section className="image" onClick={toggleOnImage} >
-                <img id='preview_image' src={preview} alt='User Image' />
-              </section>
-            </React.Fragment>
+            <section className="image" onClick={toggleOnImage} >
+              <img id='preview_image' src={preview} alt='User Image' />
+            </section>
           )}
       </section>
 

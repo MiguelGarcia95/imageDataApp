@@ -4,7 +4,7 @@ import MenuItem from '../../UI/MenuItem';
 import {
   getImageLabels, getImageWebLabels, getImageObjects, getImageProperties, getImageSafeSearch, getImageText
 } from '../../../store/actions/image.js';
-import { faTags, faChild, faObjectUngroup, faCogs, faFont, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faTags, faChild, faRedoAlt, faObjectUngroup, faCogs, faFont, faSearch } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 
 
@@ -40,6 +40,7 @@ class MenuHeader extends Component {
             <MenuItem title='Properties' icon={faCogs} onItemClick={() => this.onGetImageProperties(image)} disabled={imagePropertiesSuccess} />
             <MenuItem title='Safe Search' icon={faChild} onItemClick={() => this.onGetImageSafeSearch(image)} disabled={imageSafeSearchSuccess} />
             <MenuItem title='Text' icon={faFont} onItemClick={() => this.onGetImageText(image)} disabled={imageTextSuccess} />
+            <MenuItem title='Reset' icon={faRedoAlt} onItemClick={this.props.resetImage} disabled={false} />
           </section>
         </React.Fragment>
       </section>
