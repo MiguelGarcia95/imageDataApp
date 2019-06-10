@@ -4,7 +4,7 @@ const displasyObjects = objects => {
   if (!objects) return;
   return objects.map((object, index) => {
     return (
-      <section key={index} className="object">
+      <section onClick={() => console.log(object.boundingPoly)} key={index} className="object">
         <p>{object.name}</p>
       </section>
     )

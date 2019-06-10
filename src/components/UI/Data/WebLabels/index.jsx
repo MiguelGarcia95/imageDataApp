@@ -16,7 +16,7 @@ const displayLabels = labels => {
   return labels.webEntities.map((label, index) => {
     return (
       <section key={index} >
-        <section className="name" onClick={() => console.log(label.boundingPoly)} ><p>{label.description}</p></section>
+        <section className="name" ><p>{label.description}</p></section>
       </section>
     )
   })
