@@ -19,6 +19,9 @@ const verticies = (points, name) => {
   let width = points[0].x - points[1].x;
   let height = points[1].y - points[2].y;
   let origin = points[0];
+  console.log('width', width);
+  console.log('height', height);
+  console.log('origin', origin);
   // console.log(object.normalizedVertices);
   // console.log(object);
   console.log(name)
