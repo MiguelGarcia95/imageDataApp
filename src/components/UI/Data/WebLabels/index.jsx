@@ -27,6 +27,7 @@ const displayLabels = labels => {
 function WebLabels({labels}) {
   return (
     <section>
+      {labels && <p className='title'>Web Labels</p> }
       {displayLabels(labels)}
     </section>
   )
