@@ -7,6 +7,7 @@ import DropZone from './UI/DropZone';
 import MenuHeader from './UI/MenuHeader';
 import DataContainer from './UI/DataContainer';
 import Loading from './UI/Loading';
+import Title from './UI/Title';
 import Error from './UI/Error';
 import './style.css';
 
@@ -89,10 +90,7 @@ class App extends Component {
         {isLoading && <Loading /> }
         {error && <Error error={error} onErrorClick={this.props.clearError} />}
 
-        <section className={`title ${preview ? 'closed' : ''}`}>
-          <h1>Upload Image to Analyze.</h1> 
-        </section>
-
+        <Title title={'Upload Image to Analyze'} preview={preview} />
         <MenuHeader preview={preview} image={this.state.image} resetImage={this.resetImage} />
         <DropZone onImageDrop={this.onImageDrop} preview={preview} />
         <Preview 
@@ -103,7 +101,6 @@ class App extends Component {
           resetImage={this.resetImage}
           dataHasBeenFetched={dataHasBeenFetched}      
         />
-
         <DataContainer
           preview={preview}   
           dataHasBeenFetched={dataHasBeenFetched}      
