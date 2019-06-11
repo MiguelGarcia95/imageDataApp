@@ -1,5 +1,6 @@
 import React from 'react';
 import LazyLoad from 'react-lazy-load';
+import Image from '../Image';
 import './style.css';
 
 const imageError = image => {
@@ -11,9 +12,10 @@ const displayMatchingImages = images => {
   if (!images) return;
   return images.fullMatchingImages.map((image, index) => {
     return (
-      <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index}>
-        <img className='similar_web_images' alt='similar image' src={image.url} />
-      </LazyLoad>
+      // <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index}>
+      //   <img className='similar_web_images' alt='similar image' src={image.url} />
+      // </LazyLoad>
+      <Image index={index} image={image} />
     )
   })
 }
@@ -22,9 +24,11 @@ const displayPartialMatchingImages = images => {
   if (!images) return;
   return images.partialMatchingImages.map((image, index) => {
     return (
-      <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
-         <img className='similar_web_images' alt='matching image' src={image.url} />
-      </LazyLoad>
+      // <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index}>
+      //    <img className='similar_web_images' alt='matching image' src={image.url} />
+      // </LazyLoad>
+      <Image index={index} image={image} />
+
     ) 
   })
 }
@@ -33,9 +37,10 @@ const displayVisuallySimilarImages = images => {
   if (!images) return;
   return images.visuallySimilarImages.map((image, index) => {
     return (
-      <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
-         <img className='similar_web_images' alt='visually similar image' src={image.url} />
-      </LazyLoad>
+      // <LazyLoad offsetVertical={300} debounce={false} throttle={250} key={index} >
+      //    <img className='similar_web_images' alt='visually similar image' src={image.url} />
+      // </LazyLoad>
+      <Image index={index} image={image} />
     )
   })
 }
