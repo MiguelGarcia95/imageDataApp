@@ -14,11 +14,7 @@ import React from 'react';
 const displayLabels = labels => {
   if (!labels) return;
   return labels.webEntities.map((label, index) => {
-    return (
-      <section key={index} >
-        <section className="name" ><p>{label.description}</p></section>
-      </section>
-    )
+    return <section key={index} className="name" ><p>{label.description}</p></section>
   })
 }
 
@@ -28,7 +24,9 @@ function WebLabels({labels}) {
   return (
     <React.Fragment>
       {labels && <p className='title'>Web Labels</p> }
-      {displayLabels(labels)}
+      <section className='container'>
+        {displayLabels(labels)}
+      </section>
     </React.Fragment>
   )
 }
