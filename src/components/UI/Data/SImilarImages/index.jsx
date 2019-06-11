@@ -6,23 +6,9 @@ import './style.css';
 //   console.log(image);
 // }
 
-const displayMatchingImages = images => {
+const displayImages = images => {
   if (!images) return;
-  return images.fullMatchingImages.map((image, index) => {
-    return <Image key={index} image={image} />
-  })
-}
-
-const displayPartialMatchingImages = images => {
-  if (!images) return;
-  return images.partialMatchingImages.map((image, index) => {
-    return <Image key={index} image={image} />
-  })
-}
-
-const displayVisuallySimilarImages = images => {
-  if (!images) return;
-  return images.visuallySimilarImages.map((image, index) => {
+  return images.map((image, index) => {
     return <Image key={index} image={image} />
   })
 }
@@ -31,11 +17,11 @@ function SimilarImages({images}) {
   return (
     <section className="images_container">
       {images && <p className='image-title'>Matching Images</p>}
-      {displayMatchingImages(images)}
+      {displayImages(images.fullMatchingImages)}
       {images && <p className='image-title'>Partial Matching Images</p>}
-      {displayPartialMatchingImages(images)}
+      {displayImages(images.partialMatchingImages)}
       {images && <p className='image-title'>Visually Similar Images</p>}
-      {displayVisuallySimilarImages(images)}
+      {displayImages(images.visuallySimilarImages)}
     </section>
   )
 }
