@@ -1,17 +1,17 @@
 import React from 'react';
 
+// format: {
+//   locations,
+//   properties,
+//   mid,
+//   locale,
+//   description,
+//   score,
+//   confidence,
+//   topicality,
+//   boundingPoly
+// }
 const displayLabels = labels => {
-  // format: {
-  //   locations,
-  //   properties,
-  //   mid,
-  //   locale,
-  //   description,
-  //   score,
-  //   confidence,
-  //   topicality,
-  //   boundingPoly
-  // }
   if (!labels) return;
   return labels.webEntities.map((label, index) => {
     return (
@@ -26,10 +26,10 @@ const displayLabels = labels => {
 
 function WebLabels({labels}) {
   return (
-    <section>
+    <React.Fragment>
       {labels && <p className='title'>Web Labels</p> }
       {displayLabels(labels)}
-    </section>
+    </React.Fragment>
   )
 }
 
